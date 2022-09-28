@@ -4,9 +4,7 @@ pipeline {
     stages {
         stage ('Starting the webpage') {
             steps {
-                sh "Aqui empieza la cosa "
-
-
+                sh "python Versiones.py"
             }
         }
 
