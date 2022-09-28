@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage ('Starting the webpage') {
             steps {
+                sh "ls"
                 sh "python Versiones.py"
             }
         }
