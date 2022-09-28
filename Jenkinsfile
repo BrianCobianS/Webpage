@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh "python3 -V"
                 sh "ls"
-                sh "xdg-open index.html"
+                sh "firefox &lt;filename>.html"
                 // sh "pip version pywebcopy"
                 // sh "python3 Versiones.py"
             }
