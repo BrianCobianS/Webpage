@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh "python3 -V"
                 sh "ls"
-                sh "python Versiones.py"
+                sh "python3 Versiones.py"
             }
         }
 
