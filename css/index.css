@@ -1,0 +1,114 @@
+.middle-align {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+}
+
+
+.banner-content {
+    padding: 25px 20px 15px;
+    margin: 0 auto;
+}
+
+
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
+figure{
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 10px;
+  margin-inline-end: 10px;
+  display: flex;
+  display: -webkit-flex;
+  align-items: right;
+  -webkit-align-items: right;
+  justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+}
+
+.bround{
+ /* background-image: url("../Images/eee.png") */
+ /* background-image: url("https://wallpaperaccess.com/full/862019.jpg") */
+ background-color: rgb(91, 86, 86);
+ /* border-radius: 80px; */
+}
+
+.formtab{
+  background-color:#3c3c3c;
+}
+
+
+.Cimg{
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    width: 250px;
+    height: 250px;
+    /* object-fit: contain; */
+    object-position: -10% 10%;
+
+  }
+.jenkins{
+    position: absolute;
+    top: 20%;
+    right: 85%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    object-position: -10%;
+ 
+}
+
+
+#gif{
+    object-fit: cover !important;
+    object-position: 30% !important;
+ 
+}
+
+#formulario {
+    border-radius: 20px;
+}
+
+input {
+    width: 100%;
+    color: #fff;
+    display: block;
+    border: none;
+    border-bottom: 1px solid white;
+    padding: 6px 10px;
+}
+
+input::placeholder {
+	color: #9d9797;
+	font-size: 1rem;
+	font-style: italic;
+}
+input:focus {
+	color: white;
+	font-size: 1rem;
+
+}
+
+.info{
+  padding: 1.5rem 1.5rem 0rem 0rem;
+}
+.infotype1{
+  padding: 0rem 1.5rem 0rem 0rem;
+}
+
+.danger{
+  margin-top: 20px; 
+}
+
+
+
