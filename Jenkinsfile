@@ -4,12 +4,11 @@ pipeline {
     stages {
         stage ('Starting the webpage') {
             steps {
-                sh "python3 -V"
+                sh "wget http://10.89.110.62:28081/service/rest/repository/browse/tgcs-maven-snapshot/com/toshibacommerce/ace/ACE3D001/"
+                sh "echo changeBat('index.html.1') >> Versiones.py"
                 sh "ls"
-                sh "pip install pywebcopy"
                 sh "python3 Versiones.py"
-                // sh "pip version pywebcopy"
-                // sh "python3 Versiones.py"
+                sh "ls"
             }
         }
 
