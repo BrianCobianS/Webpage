@@ -1,0 +1,142 @@
+[
+  {
+  "version":"Jedi",
+  "id":1,
+  "nivel": "V8R1SP2.j239.10"
+  },
+  {
+  "version":"Jedi",
+  "id":2,
+  "nivel": "V8R1SP2.j288"
+  },
+  {
+  "version":"Jedi",
+  "id":3,
+  "nivel": "V8R1SP2.j289"
+  },
+  {
+  "version":"Jedi",
+  "id":4,
+  "nivel": "V8R1SP2.j290"
+  },
+  {
+  "version":"Jedi",
+  "id":5,
+  "nivel": "V8R1SP2.j290.1"
+  },
+  {
+  "version":"Jedi",
+  "id":6,
+  "nivel": "V8R1SP2.j290.2"
+  },
+  {
+  "version":"Jedi",
+  "id":7,
+  "nivel": "V8R1SP2.j291"
+  },
+  {
+  "version":"Jedi",
+  "id":8,
+  "nivel": "V8R1SP2.j292"
+  },
+  {
+  "version":"Jedi",
+  "id":9,
+  "nivel": "V8R1SP2.j293"
+  },
+  {
+  "version":"Jedi",
+  "id":10,
+  "nivel": "V8R1SP2.j294"
+  },
+  {
+  "version":"Leia",
+  "id":1,
+  "nivel": "V8R2.l125.6"
+  },
+  {
+  "version":"Leia",
+  "id":2,
+  "nivel": "V8R2.l127.7"
+  },
+  {
+  "version":"Leia",
+  "id":3,
+  "nivel": "V8R2.l167"
+  },
+  {
+  "version":"Leia",
+  "id":4,
+  "nivel": "V8R2.l168"
+  },
+  {
+  "version":"Leia",
+  "id":5,
+  "nivel": "V8R2.l169"
+  },
+  {
+  "version":"Leia",
+  "id":6,
+  "nivel": "V8R2.l170"
+  },
+  {
+  "version":"Leia",
+  "id":7,
+  "nivel": "V8R2.l171"
+  },
+  {
+  "version":"Morty",
+  "id":1,
+  "nivel": "V8R3.m004.39"
+  },
+  {
+  "version":"Morty",
+  "id":2,
+  "nivel": "V8R3.m004.40"
+  },
+  {
+  "version":"Morty",
+  "id":3,
+  "nivel": "V8R3.m004.41"
+  },
+  {
+  "version":"Morty",
+  "id":4,
+  "nivel": "V8R3.m004.42"
+  },
+  {
+  "version":"Morty",
+  "id":5,
+  "nivel": "V8R3.m004.43"
+  },
+  {
+  "version":"Morty",
+  "id":6,
+  "nivel": "V8R3.m004.44"
+  },
+  {
+  "version":"Morty",
+  "id":7,
+  "nivel": "V8R3.m004.45"
+  },
+  {
+  "version":"Morty",
+  "id":8,
+  "nivel": "V8R3.m004.47"
+  },
+  {
+  "version":"Morty",
+  "id":9,
+  "nivel": "V8R3.m113"
+  },
+  {
+  "version":"Morty",
+  "id":10,
+  "nivel": "V8R3.m113.1"
+  },
+  {
+  "version":"Morty",
+  "id":11,
+  "nivel": "V8R3.m114"
+  }
+]

@@ -88,6 +88,14 @@ function obtenerdato(ve){
         console.log(resultado)
         Construirrealeses(resultado,ve);
       })
+    // fetch('http://10.89.110.62:28081/repository/tgcs-maven-snapshot/com/toshibacommerce/ace/ACE3D001/V8R1SP2.j239.10-SNAPSHOT/maven-metadata.xml')
+    // .then(xml=>{
+    //     console.log(xml)
+    //     return xml.text
+    // })
+    // .then(popis=>{
+    //     console.log(popis)
+    // })
   
 }
 function  Construirrealeses(e,ve){
