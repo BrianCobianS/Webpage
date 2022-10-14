@@ -81,22 +81,13 @@ function inicioApp() {
 function obtenerdato(ve){
     fetch('../Versiones.json')
       .then(respuesta  =>{
-          console.log(respuesta)
+        //   console.log(respuesta)
           return respuesta.json();
       } )
       .then(resultado => {
-        console.log(resultado)
+        // console.log(resultado)
         Construirrealeses(resultado,ve);
-      })
-    // fetch('http://10.89.110.62:28081/repository/tgcs-maven-snapshot/com/toshibacommerce/ace/ACE3D001/V8R1SP2.j239.10-SNAPSHOT/maven-metadata.xml')
-    // .then(xml=>{
-    //     console.log(xml)
-    //     return xml.text
-    // })
-    // .then(popis=>{
-    //     console.log(popis)
-    // })
-  
+      })  
 }
 function  Construirrealeses(e,ve){
     const realeses = document.querySelector('#Selectlevel')
@@ -109,16 +100,20 @@ function  Construirrealeses(e,ve){
     Seleccione2.setAttribute('value','l167')
     Seleccione2.textContent= 'l167'
     realeses.appendChild(Seleccione2)
-    e.forEach(realese => {
-        const contenido = document.createElement('option')
-        const {version, id, nivel} =realese
-        if(ve == version){
-        contenido.setAttribute('value',`${nivel}`)
-        contenido.textContent= `${nivel}`
-        realeses.appendChild(contenido)
+    console.log(e)
+    for (const x in e){
+        // console.log(`${x}`);
+        if (ve==x){
+            e[x].forEach(Object =>{
+                // console.log(Object)
+                const contenido = document.createElement('option')
+                const {id, nivel} =Object
+                contenido.setAttribute('value',`${nivel}`)
+                contenido.textContent= `${nivel}`
+                realeses.appendChild(contenido)
+            })
         }
-    });
-
+    }
 }
 function listacontroladores(a) {
     let mig;
