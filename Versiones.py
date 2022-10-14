@@ -42,4 +42,4 @@ def changeBat(fileDirectory):
                 contenido.writelines('  {\n  "id":'+str(f)+',\n  "nivel": "'+index+'"\n  },\n')
             contenido.writelines('  ]\n') if x == 2 else contenido.writelines('  ],\n')
       contenido.writelines('}\n')
-changeBat('update/nexus')
+changeBat('var/www/html/update/nexus')
