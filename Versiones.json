@@ -2,40 +2,32 @@
   "Jedi": [
   {
   "id":1,
-  "nivel": "V8R1SP2.j239.10"
+  "nivel": "V8R1SP2.j290.3"
   },
   {
   "id":2,
-  "nivel": "V8R1SP2.j288"
+  "nivel": "V8R1SP2.j292"
   },
   {
   "id":3,
-  "nivel": "V8R1SP2.j290"
+  "nivel": "V8R1SP2.j293"
   },
   {
   "id":4,
-  "nivel": "V8R1SP2.j290.1"
+  "nivel": "V8R1SP2.j294"
   },
   {
   "id":5,
-  "nivel": "V8R1SP2.j290.2"
+  "nivel": "V8R1SP2.j295"
   },
   {
   "id":6,
-  "nivel": "V8R1SP2.j293"
+  "nivel": "V8R1SP2.j296"
   }
   ],
   "Leia": [
   {
   "id":1,
-  "nivel": "V8R2.l169"
-  },
-  {
-  "id":2,
-  "nivel": "V8R2.l170"
-  },
-  {
-  "id":3,
   "nivel": "V8R2.l171"
   }
   ],
@@ -51,6 +43,22 @@
   {
   "id":3,
   "nivel": "V8R3.m113.1"
+  },
+  {
+  "id":4,
+  "nivel": "V8R3.m113.2"
+  },
+  {
+  "id":5,
+  "nivel": "V8R3.m114"
+  },
+  {
+  "id":6,
+  "nivel": "V8R3.m115"
+  },
+  {
+  "id":7,
+  "nivel": "V8R3.m116"
   }
   ]
 }
