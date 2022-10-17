@@ -2,63 +2,77 @@
   "Jedi": [
   {
   "id":1,
-  "nivel": "V8R1SP2.j290.3"
-  },
+  "nivel": "V8R1SP2.j290.3",
+  "complemento": "V8R1SP2.j290.3-20220930.213303-1"
+ },
   {
   "id":2,
-  "nivel": "V8R1SP2.j292"
-  },
+  "nivel": "V8R1SP2.j292",
+  "complemento": "V8R1SP2.j292-20220927.234533-2"
+ },
   {
   "id":3,
-  "nivel": "V8R1SP2.j293"
-  },
+  "nivel": "V8R1SP2.j293",
+  "complemento": "V8R1SP2.j293-20220922.162914-1"
+ },
   {
   "id":4,
-  "nivel": "V8R1SP2.j294"
-  },
+  "nivel": "V8R1SP2.j294",
+  "complemento": "V8R1SP2.j294-20220929.165453-1"
+ },
   {
   "id":5,
-  "nivel": "V8R1SP2.j295"
-  },
+  "nivel": "V8R1SP2.j295",
+  "complemento": "V8R1SP2.j295-20221006.163306-1"
+ },
   {
   "id":6,
-  "nivel": "V8R1SP2.j296"
-  }
+  "nivel": "V8R1SP2.j296",
+  "complemento": "V8R1SP2.j296-20221013.163120-1"
+}
   ],
   "Leia": [
   {
   "id":1,
-  "nivel": "V8R2.l171"
-  }
+  "nivel": "V8R2.l171",
+  "complemento": "V8R2.l171-20221015.034542-5"
+}
   ],
   "Morty": [
   {
   "id":1,
-  "nivel": "V8R3.m112.1"
-  },
+  "nivel": "V8R3.m112.1",
+  "complemento": "V8R3.m112.1-20221011.001023-1"
+ },
   {
   "id":2,
-  "nivel": "V8R3.m113"
-  },
+  "nivel": "V8R3.m113",
+  "complemento": "V8R3.m113-20220929.044620-39"
+ },
   {
   "id":3,
-  "nivel": "V8R3.m113.1"
-  },
+  "nivel": "V8R3.m113.1",
+  "complemento": "V8R3.m113.1-20220929.235130-1"
+ },
   {
   "id":4,
-  "nivel": "V8R3.m113.2"
-  },
+  "nivel": "V8R3.m113.2",
+  "complemento": "V8R3.m113.2-20221008.231242-1"
+ },
   {
   "id":5,
-  "nivel": "V8R3.m114"
-  },
+  "nivel": "V8R3.m114",
+  "complemento": "V8R3.m114-20221006.203145-4"
+ },
   {
   "id":6,
-  "nivel": "V8R3.m115"
-  },
+  "nivel": "V8R3.m115",
+  "complemento": "V8R3.m115-20221012.073542-4"
+ },
   {
   "id":7,
-  "nivel": "V8R3.m116"
-  }
+  "nivel": "V8R3.m116",
+  "complemento": "V8R3.m116-20221015.073324-2"
+}
   ]
 }

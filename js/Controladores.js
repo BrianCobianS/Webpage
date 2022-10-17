@@ -310,22 +310,44 @@ function jenkins(e){
 
     }
     if( x == ''){
-        gren('Llamando a Jenkins')
-        lista.forEach(controlador => {
-            const enlace = document.querySelector('.comenzar')
-            console.log(controlador)
-            enlace.setAttribute('href',`http://jenkins3.rtptgcs.com:28084/job/ACE_UnattendedInstallation/buildWithParameters?token=token_ace&Version=${controlador.version}&level_name=${controlador.nivel}&level_complement=l170-20220915.163800-1&opc=${controlador.opc}&import_inventory=controller("${controlador.ip}","${controlador.usr}","${controlador.pass}")&ASM=${controlador.ASM}`)
-    
-        });
-            sessionStorage.removeItem('Controladores');
-            location.reload
-
-
+        fetch('../Versiones.json')
+        .then(respuesta  =>{
+          //   console.log(respuesta)
+            return respuesta.json();
+        } )
+        .then(resultado => {
+          // console.log(resultado)
+          ComenzarInstalacion(resultado);
+        })  
     }else{
         error('No se puede continuar',x)
     }
 
 }
+
+function ComenzarInstalacion(resultado){
+    // console.log(resultado)
+    gren('Llamando a Jenkins')
+    // const resultado2 = carrito.find( resultado => resultado === controlador.version);
+    // console.log(resultado2)
+    lista.forEach(controlador => {
+        for (const x in resultado){
+            // console.log(`${x} in ${resultado[x]}`);
+            if (controlador.version==x){
+                comple = resultado[x].find( Object => Object.nivel === controlador.nivel)
+                // console.log(comple)
+            }
+        }
+        const enlace = document.querySelector('.comenzar')
+        console.log(controlador.nivel)
+        console.log(comple.complemento)
+        enlace.setAttribute('href',`http://jenkins3.rtptgcs.com:28084/job/ACE_UnattendedInstallation/buildWithParameters?token=token_ace&Version=${controlador.version}&level_name=${controlador.nivel}&level_complement=${comple.complemento}&opc=${controlador.opc}&import_inventory=controller("${controlador.ip}","${controlador.usr}","${controlador.pass}")&ASM=${controlador.ASM}`)
+        console.log(`http://jenkins3.rtptgcs.com:28084/job/ACE_UnattendedInstallation/buildWithParameters?token=token_ace&Version=${controlador.version}&level_name=${controlador.nivel}&level_complement=${comple.complemento}&opc=${controlador.opc}&import_inventory=controller("${controlador.ip}","${controlador.usr}","${controlador.pass}")&ASM=${controlador.ASM}`)
+    });
+        // sessionStorage.removeItem('Controladores');
+        location.reload
+}
+
 
 function error(mensaje,arr){
     const x = document.createElement("div")
