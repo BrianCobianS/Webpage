@@ -42,11 +42,9 @@ def changeBat(fileDirectory):
                 final=linea.find('</value>')
                 linea1=linea[inicio+7:final]
                 complementos.append(linea1)
-                print(linea1)
+                # print(linea1)
                 break
           os.remove(complement)
-      for a in complementos:
-        print(a)
       Tipo=['Jedi','Leia','Morty']
       contenido = open('Versiones.json', "w")
       contenido.writelines('{\n')
@@ -56,7 +54,7 @@ def changeBat(fileDirectory):
             f=0
             for index in versiones[x]:
               f += 1
-              print(i)
+              # print(i)
               if  f == len(versiones[x]) :
                 contenido.writelines('  {\n  "id":'+str(f)+',\n  "nivel": "'+index+'",\n  "complemento": "'+complementos[i]+'"\n}\n')
               else:
