@@ -92,14 +92,10 @@ function obtenerdato(ve){
 function  Construirrealeses(e,ve){
     const realeses = document.querySelector('#Selectlevel')
     const Seleccione1= document.createElement('option')
-    const Seleccione2= document.createElement('option')
     limpiarHTML(realeses);
     Seleccione1.setAttribute('value','')
     Seleccione1.textContent= 'Seleccione'
     realeses.appendChild(Seleccione1)
-    Seleccione2.setAttribute('value','l167')
-    Seleccione2.textContent= 'l167'
-    realeses.appendChild(Seleccione2)
     console.log(e)
     for (const x in e){
         // console.log(`${x}`);
@@ -341,8 +337,9 @@ function ComenzarInstalacion(resultado){
         const enlace = document.querySelector('.comenzar')
         console.log(controlador.nivel)
         console.log(comple.complemento)
-        enlace.setAttribute('href',`http://jenkins3.rtptgcs.com:28084/job/ACE_UnattendedInstallation/buildWithParameters?token=token_ace&Version=${controlador.version}&level_name=${controlador.nivel}&level_complement=${comple.complemento}&opc=${controlador.opc}&import_inventory=controller("${controlador.ip}","${controlador.usr}","${controlador.pass}")&ASM=${controlador.ASM}`)
+        // enlace.setAttribute('href',`http://jenkins3.rtptgcs.com:28084/job/ACE_UnattendedInstallation/buildWithParameters?token=token_ace&Version=${controlador.version}&level_name=${controlador.nivel}&level_complement=${comple.complemento}&opc=${controlador.opc}&import_inventory=controller("${controlador.ip}","${controlador.usr}","${controlador.pass}")&ASM=${controlador.ASM}`)
         console.log(`http://jenkins3.rtptgcs.com:28084/job/ACE_UnattendedInstallation/buildWithParameters?token=token_ace&Version=${controlador.version}&level_name=${controlador.nivel}&level_complement=${comple.complemento}&opc=${controlador.opc}&import_inventory=controller("${controlador.ip}","${controlador.usr}","${controlador.pass}")&ASM=${controlador.ASM}`)
+        window.open(`http://jenkins3.rtptgcs.com:28084/job/ACE_UnattendedInstallation/buildWithParameters?token=token_ace&Version=${controlador.version}&level_name=${controlador.nivel}&level_complement=${comple.complemento}&opc=${controlador.opc}&import_inventory=controller("${controlador.ip}","${controlador.usr}","${controlador.pass}")&ASM=${controlador.ASM}`,'_blank');
     });
         // sessionStorage.removeItem('Controladores');
         location.reload
