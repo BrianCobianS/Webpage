@@ -339,10 +339,30 @@ function ComenzarInstalacion(resultado){
         console.log(comple.complemento)
         // enlace.setAttribute('href',`http://jenkins3.rtptgcs.com:28084/job/ACE_UnattendedInstallation/buildWithParameters?token=token_ace&Version=${controlador.version}&level_name=${controlador.nivel}&level_complement=${comple.complemento}&opc=${controlador.opc}&import_inventory=controller("${controlador.ip}","${controlador.usr}","${controlador.pass}")&ASM=${controlador.ASM}`)
         console.log(`http://jenkins3.rtptgcs.com:28084/job/ACE_UnattendedInstallation/buildWithParameters?token=token_ace&Version=${controlador.version}&level_name=${controlador.nivel}&level_complement=${comple.complemento}&opc=${controlador.opc}&import_inventory=controller("${controlador.ip}","${controlador.usr}","${controlador.pass}")&ASM=${controlador.ASM}`)
-        window.open(`http://jenkins3.rtptgcs.com:28084/job/ACE_UnattendedInstallation/buildWithParameters?token=token_ace&Version=${controlador.version}&level_name=${controlador.nivel}&level_complement=${comple.complemento}&opc=${controlador.opc}&import_inventory=controller("${controlador.ip}","${controlador.usr}","${controlador.pass}")&ASM=${controlador.ASM}`,'_blank');
+        // window.open(`http://jenkins3.rtptgcs.com:28084/job/ACE_UnattendedInstallation/buildWithParameters?token=token_ace&Version=${controlador.version}&level_name=${controlador.nivel}&level_complement=${comple.complemento}&opc=${controlador.opc}&import_inventory=controller("${controlador.ip}","${controlador.usr}","${controlador.pass}")&ASM=${controlador.ASM}`,'_blank');
+        // main.js
+
     });
+    const data= {
+        "Nombre ": "FuncionaLaApi"
+        }
+    fetch('http://10.89.181.252:4000/', {
+        method: 'POST', // or 'PUT'
+        body: data,
+        // mode : 'no-cors',
+        headers: {
+            'Content-Type':'aplication/json'
+        }
+        })
+        .then((response) => cosole.log(response.json()))
+        .then((data) => {
+          console.log('Success:', data);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
         // sessionStorage.removeItem('Controladores');
-        location.reload
+        // location.reloadK
 }
 
 
