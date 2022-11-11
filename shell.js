@@ -1,6 +1,6 @@
 import { exec } from 'child_process';
 function shel(Controlador){
-   exec(`python  C:/Users/brian.cobian/Desktop/IMDesatendida/Fullstackpage/Back-End/public/Inventories/schedule.py ${Controlador.ip} ${Controlador.usr} ${Controlador.pass} ${Controlador.opc} ${Controlador.complemento} ${Controlador.nivel} ${Controlador.ASM}`, (error, stdout, stderr) => {
+   exec(`python  /home/ebossteam/UnattendedInstallation/FULLSTACK/Back-End/public/Inventories/schedule.py ${Controlador.ip} ${Controlador.usr} ${Controlador.pass} ${Controlador.opc} ${Controlador.complemento} ${Controlador.nivel} ${Controlador.ASM}`, (error, stdout, stderr) => {
       if (error) {
       console.error(`error: ${error.message}`);
       return;
