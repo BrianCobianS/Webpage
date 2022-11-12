@@ -316,63 +316,73 @@ function jenkins(e){
           ComenzarInstalacion(resultado);
         })  
     }else{
-        error('No se puede continuar',x)
+        dontwork('No se puede continuar',x)
     }
 
 }
 
 function ComenzarInstalacion(resultado){
-    // console.log(resultado)
-    gren('Llamando a Jenkins')
-    // const resultado2 = carrito.find( resultado => resultado === controlador.version);
-    // console.log(resultado2)
+
+    let i =0;
     lista.forEach(controlador => {
+
         for (const x in resultado){
-            // console.log(`${x} in ${resultado[x]}`);
             if (controlador.version==x){
                 comple = resultado[x].find( Object => Object.nivel === controlador.nivel)
-                // console.log(comple)
             }
         }
         const enlace = document.querySelector('.comenzar')
-        console.log(controlador.nivel)
-        console.log(comple.complemento)
+        // console.log(controlador.nivel)
+        // console.log(comple.complemento)
         // enlace.setAttribute('href',`http://jenkins3.rtptgcs.com:28084/job/ACE_UnattendedInstallation/buildWithParameters?token=token_ace&Version=${controlador.version}&level_name=${controlador.nivel}&level_complement=${comple.complemento}&opc=${controlador.opc}&import_inventory=controller("${controlador.ip}","${controlador.usr}","${controlador.pass}")&ASM=${controlador.ASM}`)
-        console.log(`http://jenkins3.rtptgcs.com:28084/job/ACE_UnattendedInstallation/buildWithParameters?token=token_ace&Version=${controlador.version}&level_name=${controlador.nivel}&level_complement=${comple.complemento}&opc=${controlador.opc}&import_inventory=controller("${controlador.ip}","${controlador.usr}","${controlador.pass}")&ASM=${controlador.ASM}`)
+        // console.log(`http://jenkins3.rtptgcs.com:28084/job/ACE_UnattendedInstallation/buildWithParameters?token=token_ace&Version=${controlador.version}&level_name=${controlador.nivel}&level_complement=${comple.complemento}&opc=${controlador.opc}&import_inventory=controller("${controlador.ip}","${controlador.usr}","${controlador.pass}")&ASM=${controlador.ASM}`)
         // window.open(`http://jenkins3.rtptgcs.com:28084/job/ACE_UnattendedInstallation/buildWithParameters?token=token_ace&Version=${controlador.version}&level_name=${controlador.nivel}&level_complement=${comple.complemento}&opc=${controlador.opc}&import_inventory=controller("${controlador.ip}","${controlador.usr}","${controlador.pass}")&ASM=${controlador.ASM}`,'_blank');
-        // main.js
-
+        console.log(i)
+        lista[i].complemento=comple.complemento;
+        i=i+1;
     });
-    const data= {
-        "Nombre ": "FuncionaLaApi"
-        }
-    fetch('http://10.89.181.252:4000/', {
-        method: 'POST', // or 'PUT'
-        body: data,
-        // mode : 'no-cors',
+    // console.log(lista)
+    const data={Controladores : lista}
+    const options = {
+        method: 'POST',
         headers: {
-            'Content-Type':'aplication/json'
-        }
-        })
-        .then((response) => cosole.log(response.json()))
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    };
+    fetch('http://10.89.182.86:4000/',options)
+        .then((response) => response.json())
         .then((data) => {
           console.log('Success:', data);
+          gren( `${data.msg}`)
         })
         .catch((error) => {
-          console.error('Error:', error);
+            dontwork( `Este es un error: ${error}`)
+          console.log('Error:', error);
+          
         });
+    console.log(JSON.stringify(data))
         // sessionStorage.removeItem('Controladores');
-        // location.reloadK
+        // location.reload
 }
 
 
-function error(mensaje,arr){
+function dontwork(mensaje,arr){
     const x = document.createElement("div")
-    x.innerHTML=`
-    <div class="alert alert-danger fade show error danger" role="alert">
-    <strong> ${mensaje}!</strong> faltan parametros en ${arr}.
-    </div>
-    `;
+    if(arr){
+        x.innerHTML=`
+        <div class="alert alert-danger fade show error danger" role="alert">
+        <strong> ${mensaje}!</strong> faltan parametros en ${arr}.
+        </div>
+        `;
+    }else{
+        x.innerHTML=`
+        <div class="alert alert-danger fade show error danger" role="alert">
+        <strong> Conexion con el servidor fallida!</strong> ${mensaje}.
+        </div>
+        `;
+    }
+
     const errores = document.querySelectorAll('.error')
     if(errores.length == 0){
         const temp = document.querySelector('.t1')
@@ -388,7 +398,7 @@ function gren(mensaje){
     const x = document.createElement("div")
     x.innerHTML=`
     <div class="alert alert-success " role="alert">
-    <strong> ${mensaje}!</strong> Se esta comenzando la instalación.
+    Se esta comenzando la instalaciónas <strong> ${mensaje}!</strong> .
     `;
     const errores = document.querySelectorAll('.error')
     if(errores.length == 0){
@@ -399,4 +409,5 @@ function gren(mensaje){
             x.remove();
         },3000)
     }
-  }
+}
+
