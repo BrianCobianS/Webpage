@@ -38,9 +38,9 @@ function inicioApp() {
   submit.removeAttribute('href')
   if(sessionStorage.getItem('Controladores')){
     const lista1 = JSON.parse(sessionStorage.getItem('Controladores'));
-    ncon.textContent=`Controlador #${lista1.length+1}`
+    ncon.textContent=`Controller #${lista1.length+1}`
   }else{
-    ncon.textContent=`Controlador #1`
+    ncon.textContent=`Controller #1`
   }
 
 }
@@ -82,7 +82,7 @@ function validarFormulario(e) {
 
   } else {
        e.target.classList.add('border', 'border-danger');
-       error("Todos los campos son obligatorios");
+       error("All fields are required");
   }
 
   if(this.type === 'email') {
@@ -102,7 +102,7 @@ function verificar(){
     concat();
     ResetForm();
   }else{
-    error("Todos los campos son obligatorios");
+    error("All fields are required");
   }
 }
 
@@ -113,7 +113,7 @@ function validarEmail(e,mensaje,err,re) {
     e.target.classList.remove('border-danger');
   } else {
     e.target.classList.add('border','border-danger');
-    error("Email no valido");
+    error("Invalid Email");
   }
 }
 
@@ -121,7 +121,7 @@ function error(mensaje){
   const x = document.createElement("div")
   x.innerHTML=`
   <div class="alert alert-danger fade show error danger" role="alert">
-  <strong>Holy guacamole!</strong> ${mensaje}.
+  <strong style="color: white;">Holy guacamole!</strong> ${mensaje}.
   </div>
   `;
   const errores = document.querySelectorAll('.error')

@@ -223,7 +223,6 @@ th {
 
 label {
   display: inline-block;
-  margin-bottom: 0.5rem;
 }
 
 button {
@@ -1520,7 +1519,7 @@ pre code {
 
 .table th,
 .table td {
-  padding: 0.75rem;
+
   vertical-align: top;
   border-top: 1px solid #dee2e6;
 }
@@ -2028,7 +2027,7 @@ textarea.form-control {
 .form-check-input {
   position: absolute;
   margin-top: 0.3rem;
-  margin-left: -1.25rem;
+
 }
 
 .form-check-input:disabled ~ .form-check-label {
@@ -6597,7 +6596,7 @@ button.bg-dark:focus {
 }
 
 .border {
-  border: 1px solid #dee2e6 !important;
+  border: 1px solid #b9b9b9 !important;
 }
 
 .border-top {
@@ -9274,6 +9273,7 @@ button.bg-dark:focus {
   .px-lg-5 {
     padding-left: 3rem !important;
   }
+
   .m-lg-n1 {
     margin: -0.25rem !important;
   }

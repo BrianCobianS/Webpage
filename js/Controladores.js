@@ -17,8 +17,10 @@ const comenzar = document.querySelector("#bntjenkins")
 
 
 
+
 cargarEventListeners();
 function cargarEventListeners() {
+    // let indice = lista.length
      document.addEventListener('DOMContentLoaded', inicioApp);
     calendarizar.addEventListener('click', fecha)
     tabla.addEventListener('click', Deletecontroller)
@@ -54,8 +56,7 @@ function seleccion(e) {
 
 function inicioApp() {
     if (lista != null && lista != '') {
-        let indice = lista.length
-        temp.textContent = ` Estas modificando el controlador`
+        temp.textContent = ` You are modifying the controller`
         const bold = document.createElement('b')
         bold.textContent = ` #${indice} IP: ${lista[indice-1].ip} `
         temp.appendChild(bold)
@@ -63,11 +64,11 @@ function inicioApp() {
         comenzar.disabled=false
         temp.classList.remove('alert-danger')
         temp.classList.add('alert-warning')
-
         listacontroladores(0)
-
+        console.log(lista[indice-1].ip)
+        console.log("Estamos aqui")
     } else {
-        temp.textContent = ` No has agregado ningun controldor`
+        temp.textContent = ` You have not added any controller`
         temp.classList.remove('alert-warning')
         temp.classList.add('alert-danger')
         Agregar.disabled = true
@@ -224,10 +225,10 @@ function validarFormulario() {
     } else {
 
         const mensaje = document.createElement('div');
-        const f = document.createElement('strong');
-        mensaje.textContent = 'Faltan parametros por seleccionar !!!'
+        const f = document.createElement('h6');
+        mensaje.textContent = 'Missing parameters to select!'
         mensaje.appendChild(f)
-        mensaje.classList.add('border', 'border-danger', 'col-12', 'p-2', 'text-center');
+        mensaje.classList.add('border', 'border-danger', 'col-12',  'text-center');
         mensaje.setAttribute('role', 'alert');
         mensaje.setAttribute('style', 'background-color:#DD161D; border-radius: 5px; color:white;');
         form.insertBefore(mensaje, document.querySelector('.condicional'));
@@ -372,13 +373,13 @@ function dontwork(mensaje,arr){
     if(arr){
         x.innerHTML=`
         <div class="alert alert-danger fade show error danger" role="alert">
-        <strong> ${mensaje}!</strong> faltan parametros en ${arr}.
+        <strong> ${mensaje}!</strong><h6 >missing parameters in ${arr}.</h6>
         </div>
         `;
     }else{
         x.innerHTML=`
-        <div class="alert alert-danger fade show error danger" role="alert">
-        <strong> Conexion con el servidor fallida!</strong> ${mensaje}.
+        <div class="alert pt-1 alert-danger fade show error danger" role="alert">
+        <strong> Connection with the server failed!</strong> <h6 >${mensaje}.</h6>
         </div>
         `;
     }
@@ -398,7 +399,7 @@ function gren(mensaje){
     const x = document.createElement("div")
     x.innerHTML=`
     <div class="alert alert-success " role="alert">
-    Se esta comenzando la instalaciónas <strong> ${mensaje}!</strong> .
+    The installation has started <strong> ${mensaje}!</strong> .
     `;
     const errores = document.querySelectorAll('.error')
     if(errores.length == 0){
