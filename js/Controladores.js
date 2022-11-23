@@ -351,14 +351,14 @@ function ComenzarInstalacion(resultado){
         },
         body: JSON.stringify(data)
     };
-    fetch('http://10.89.182.86:4000/',options)
+    fetch('http://localhost:4000/',options)
         .then((response) => response.json())
         .then((data) => {
           console.log('Success:', data);
           gren( `${data.msg}`)
         })
         .catch((error) => {
-            dontwork( `Este es un error: ${error}`)
+            dontwork( `: ${error}`)
           console.log('Error:', error);
           
         });
@@ -391,7 +391,7 @@ function dontwork(mensaje,arr){
 
         setTimeout(()=>{
             x.remove();
-        },3000)
+        },8000)
     }
   }
 
@@ -399,7 +399,7 @@ function gren(mensaje){
     const x = document.createElement("div")
     x.innerHTML=`
     <div class="alert alert-success " role="alert">
-    The installation has started <strong> ${mensaje}!</strong> .
+    <strong> ${mensaje}!</strong> .
     `;
     const errores = document.querySelectorAll('.error')
     if(errores.length == 0){
@@ -408,7 +408,7 @@ function gren(mensaje){
 
         setTimeout(()=>{
             x.remove();
-        },3000)
+        },8000)
     }
 }
 
