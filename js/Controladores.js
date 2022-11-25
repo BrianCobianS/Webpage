@@ -5,6 +5,8 @@ if(sessionStorage.getItem('Controladores')){
 const temp = document.querySelector(".alert");
 const controllers = document.querySelector(".table tbody")
 const Agregar = document.querySelector(".parametros")
+const ipara = document.querySelector('#parametros')
+const warn = document.querySelector('#here')
 const versionv = document.querySelector(".version")
 const levelv = document.querySelector(".nivel")
 const calendarizar = document.querySelector('#fechacheck')
@@ -25,6 +27,39 @@ function cargarEventListeners() {
     calendarizar.addEventListener('click', fecha)
     tabla.addEventListener('click', Deletecontroller)
     form.addEventListener('input', seleccion)
+    ipara.addEventListener('click', (e) => {
+        console.log(e.target.id)
+        // wano = document.querySelector('.wano')
+        test = document.querySelector('#test')
+        insta = document.querySelector('#insta')
+        accept = document.querySelector('#accept')
+        const div = document.createElement('div')
+        div.classList.add('col-12')
+        div.classList.add('alert')
+        div.classList.add('alert-warning')
+        div.classList.add('borrar')
+        div.innerHTML = `
+        The installation option is a <strong>clean installation </strong>, which means that it will erase all previous controller information.`
+        // console.log(div)
+        if(insta.checked == true){
+            test.disabled = true
+            test.checked = false
+            accept.checked = true 
+            // console.log(ipara.insertBefore(div,ipara.children[4]))
+            if(!document.querySelector('.borrar') && e.target.id=='insta'){
+                ipara.insertBefore(div,ipara.children[4])
+                setTimeout(() => {
+                    ipara.removeChild(ipara.children[4])
+        
+                }, 6000)
+            }
+
+            
+        }else{
+            test.disabled = false
+              
+        }
+    })
     Agregar.addEventListener('click', (e) => {
         e.preventDefault();
         parametros();
@@ -170,10 +205,12 @@ function success() {
 function parametros(e) {
     const version = versionv.options[versionv.selectedIndex].value;
     const level = levelv.options[levelv.selectedIndex].value;
+    console.log(e)
     if (document.querySelector("#mig").checked) {
         lista[indice - 1].opc = 2
     } else if (document.querySelector("#insta").checked) {
         lista[indice - 1].opc = 1
+        console.log('Se selecciono instalar')
     }
     if (document.querySelector("#test").checked) {
         lista[indice - 1].ASM = 'Test'
@@ -391,7 +428,7 @@ function dontwork(mensaje,arr){
 
         setTimeout(()=>{
             x.remove();
-        },8000)
+        },10000)
     }
   }
 
@@ -408,7 +445,7 @@ function gren(mensaje){
 
         setTimeout(()=>{
             x.remove();
-        },8000)
+        },10000)
     }
 }
 
