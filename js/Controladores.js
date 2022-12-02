@@ -388,7 +388,7 @@ function ComenzarInstalacion(resultado){
         },
         body: JSON.stringify(data)
     };
-    fetch('http://localhost:4000/',options)
+    fetch('http://10.89.182.86:4000/',options)
         .then((response) => response.json())
         .then((data) => {
           console.log('Success:', data);
