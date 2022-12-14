@@ -15,10 +15,8 @@ const ACEP = ['#TCX', '#Common', '#PinPad']
 const form = document.querySelector(".g-3");
 const tabla = document.querySelector('.tabla')
 const comenzar = document.querySelector("#bntjenkins")
-
-
-
-
+let jsondocument= '../Versiones6D.json'
+const complementosjson = [ '../Versiones3D.json','../Versiones4D.json', '../Versiones6D.json']
 
 cargarEventListeners();
 function cargarEventListeners() {
@@ -27,42 +25,10 @@ function cargarEventListeners() {
     calendarizar.addEventListener('click', fecha)
     tabla.addEventListener('click', Deletecontroller)
     form.addEventListener('input', seleccion)
-    ipara.addEventListener('click', (e) => {
-        console.log(e.target.id)
-        // wano = document.querySelector('.wano')
-        test = document.querySelector('#test')
-        insta = document.querySelector('#insta')
-        accept = document.querySelector('#accept')
-        const div = document.createElement('div')
-        div.classList.add('col-12')
-        div.classList.add('alert')
-        div.classList.add('alert-warning')
-        div.classList.add('borrar')
-        div.innerHTML = `
-        The installation option is a <strong>clean installation </strong>, which means that it will erase all previous controller information.`
-        // console.log(div)
-        if(insta.checked == true){
-            test.disabled = true
-            test.checked = false
-            accept.checked = true 
-            // console.log(ipara.insertBefore(div,ipara.children[4]))
-            if(!document.querySelector('.borrar') && e.target.id=='insta'){
-                ipara.insertBefore(div,ipara.children[4])
-                setTimeout(() => {
-                    ipara.removeChild(ipara.children[4])
-        
-                }, 6000)
-            }
-
-            
-        }else{
-            test.disabled = false
-              
-        }
-    })
+    ipara.addEventListener('click', warning)
     Agregar.addEventListener('click', (e) => {
-        e.preventDefault();
-        parametros();
+        // e.preventDefault();
+        parametros(e);
     })
     tiempo.disabled = true;
     for (let i = 0; i < ACEP.length; i++) {
@@ -73,7 +39,6 @@ function cargarEventListeners() {
 
 function seleccion(e) {
     if (e.target.classList.contains('version')) {
-        obtenerdato(e.target.value);
         if (e.target.value == 'Jedi') {
             for (let i = 0; i < ACEP.length; i++) {
                 document.querySelector(ACEP[i]).disabled = false;
@@ -83,10 +48,119 @@ function seleccion(e) {
                 document.querySelector(ACEP[i]).disabled = true
                 document.querySelector(ACEP[i]).checked = false
             }
+            if(document.querySelector('.CommonSELECTION')){
+                document.querySelector('.CommonSELECTION').parentElement.removeChild(document.querySelector('.CommonSELECTION').parentElement.lastChild)
+                
+            }
+            if(document.querySelector('.PinPadSELECTION')){
+                document.querySelector('.PinPadSELECTION').parentElement.removeChild( document.querySelector('.PinPadSELECTION').parentElement.lastChild)
+            }
         }
+        obtenerdato(e.target.value);
     }
 }
 
+function warning(e){
+
+    // console.log(e.target.id)
+    // wano = document.querySelector('.wano')
+    if(e.target.id=='Common'){
+        const common = document.querySelector('#Common')
+        if(common.checked == true){
+            fetch('../TCX-Common.json')
+            .then(respuesta  =>{
+              //   console.log(respuesta)
+                return respuesta.json();
+            } )
+            .then(resultado => {
+            //   console.log(resultado)
+              selections(common,resultado)
+            })  
+        }else{
+            if(document.querySelector('.'+common.id+'SELECTION')){
+                common.parentElement.removeChild( common.parentElement.lastChild)
+                
+            }
+        }
+    }
+    if(e.target.id=='PinPad'){
+        const common = document.querySelector('#PinPad')
+        if(common.checked == true){
+            fetch('../TCX-PINPAD.json')
+            .then(respuesta  =>{
+              //   console.log(respuesta)
+                return respuesta.json();
+            } )
+            .then(resultado => {
+            //   console.log(resultado)
+              selections(common,resultado)
+            })  
+        }else{
+            if(document.querySelector('.'+common.id+'SELECTION')){
+                common.parentElement.removeChild( common.parentElement.lastChild)
+                
+            }
+        }
+    }
+    test = document.querySelector('#test')
+    insta = document.querySelector('#insta')
+    accept = document.querySelector('#accept')
+    const div = document.createElement('div')
+    div.classList.add('col-12')
+    div.classList.add('alert')
+    div.classList.add('alert-warning')
+    div.classList.add('borrar')
+    div.innerHTML = `
+    The installation option is a <strong>clean installation </strong>, which means that it will erase all previous controller information.`
+    // console.log(div)
+    if(insta.checked == true){
+        test.disabled = true
+        test.checked = false
+        accept.checked = true 
+        // console.log(ipara.insertBefore(div,ipara.children[4]))
+        if(!document.querySelector('.borrar') && e.target.id=='insta'){
+            ipara.insertBefore(div,ipara.children[4])
+            setTimeout(() => {
+                ipara.removeChild(ipara.children[4])
+    
+            }, 6000)
+        }
+
+        
+    }else{
+        test.disabled = false
+          
+    }
+}
+
+function selections(place,resultado){
+
+    const div = document.createElement('div')
+    // div.classList.add('col-6')
+    const name=place.id + "SELECTION"
+    div.classList.add(name)
+    div.innerHTML = `
+        <label for="Selectlevel-${name}"><strong>The realeses available are:</strong></label>
+        <select id="Selectlevel-${name}" class="form-select">
+        <option value="nada">Select</option>
+        </select>
+    </div>`
+
+    // console.log(!document.querySelector)
+    if(!document.querySelector('.'+name)){
+        place.parentElement.appendChild(div)
+        const placeoptions = document.querySelector('#Selectlevel-'+name)
+        resultado.TCxpaycommon.forEach(Object =>{
+
+            const contenido = document.createElement('option')
+            const {nivel} =Object
+            contenido.setAttribute('value',`${nivel}`)
+            contenido.textContent= `${nivel}`
+            placeoptions.appendChild(contenido)
+        })
+        
+    }
+}
 
 
 function inicioApp() {
@@ -101,7 +175,6 @@ function inicioApp() {
         temp.classList.add('alert-warning')
         listacontroladores(0)
         console.log(lista[indice-1].ip)
-        console.log("Estamos aqui")
     } else {
         temp.textContent = ` You have not added any controller`
         temp.classList.remove('alert-warning')
@@ -109,13 +182,11 @@ function inicioApp() {
         Agregar.disabled = true
         comenzar.disabled=true
     }
-    
-    // ../Versiones.py
 
 }
 
 function obtenerdato(ve){
-    fetch('../Versiones.json')
+    fetch(jsondocument)
       .then(respuesta  =>{
         //   console.log(respuesta)
           return respuesta.json();
@@ -132,7 +203,6 @@ function  Construirrealeses(e,ve){
     Seleccione1.setAttribute('value','')
     Seleccione1.textContent= 'Seleccione'
     realeses.appendChild(Seleccione1)
-    console.log(e)
     for (const x in e){
         // console.log(`${x}`);
         if (ve==x){
@@ -203,9 +273,7 @@ function success() {
 }
 
 function parametros(e) {
-    const version = versionv.options[versionv.selectedIndex].value;
-    const level = levelv.options[levelv.selectedIndex].value;
-    console.log(e)
+    // console.log(e.target)
     if (document.querySelector("#mig").checked) {
         lista[indice - 1].opc = 2
     } else if (document.querySelector("#insta").checked) {
@@ -222,8 +290,18 @@ function parametros(e) {
     } else {
         lista[indice - 1].fecha = 'Now'
     }
+   
+    const version = versionv.options[versionv.selectedIndex].value;
+    const level = levelv.options[levelv.selectedIndex].value;
+    const levelCommon = document.querySelector('#Common');
+    const levelPINPAD = document.querySelector('#PinPad');
+    const Tcxpay = document.querySelector('#TCX');
+    levelCommon.checked ? lista[indice - 1].TCxpaycommon = document.querySelector('#Selectlevel-CommonSELECTION').options[document.querySelector('#Selectlevel-CommonSELECTION').selectedIndex].value : lista[indice - 1].TCxpaycommon = 0;
+    levelPINPAD.checked ? lista[indice - 1].TCxpayPinPad = document.querySelector('#Selectlevel-PinPadSELECTION').options[document.querySelector('#Selectlevel-PinPadSELECTION').selectedIndex].value : lista[indice - 1].TCxpayPinPad= 0;
+    Tcxpay.checked ? lista[indice - 1].TCxpay = level : lista[indice - 1].TCxpay = 0;
     lista[indice - 1].version = version
     lista[indice - 1].nivel = level
+    document.querySelector('#EPS').checked ? lista[indice - 1].nivelEPS = level : lista[indice - 1].nivelEPS = 0
     const packs = [...ACEP, '#ACE3D', '#EPS']
     const paquetes = [];
     let a = '';
@@ -234,7 +312,15 @@ function parametros(e) {
         }
     }
     lista[indice - 1].paquetes = a;
-    validarFormulario();
+    console.log(lista[indice-1])
+    let tcxpayproducts;
+    if(lista[indice - 1].TCxpayPinPad == "nada" || lista[indice - 1].TCxpaycommon == "nada"){
+        tcxpayproducts = false
+    }else{
+        tcxpayproducts = true
+    }
+    console.log(tcxpayproducts)
+    validarFormulario(tcxpayproducts);
 
 }
 
@@ -251,9 +337,9 @@ function fecha() {
 
 }
 
-function validarFormulario() {
+function validarFormulario(tcx) {
     const a = lista[indice - 1];
-    if (a.version !== '' && a.nivel !== '' && a.paquetes !== '' && a.mig !== '' && a.opc !== '' && a.fecha !== '') {
+    if (a.version !== '' && a.nivel !== '' && a.paquetes !== '' && a.mig !== '' && a.opc !== '' && a.fecha !== '' && tcx == true) {
         sessionStorage.setItem('Controladores', JSON.stringify(lista));
         limpiarHTML(controllers)
         listacontroladores(0);
@@ -288,7 +374,7 @@ function Deletecontroller(e) {
         const b = parseInt(e.target.id);
         Resetform();
 
-        versionv.value=lista[b].version
+        // versionv.value=lista[b].version
         if (lista[b].version == 'Jedi') {
             for (let i = 0; i < ACEP.length; i++) {
                 document.querySelector(ACEP[i]).disabled = false;
@@ -298,7 +384,7 @@ function Deletecontroller(e) {
                 document.querySelector(ACEP[i]).disabled = true
             }
         }
-        levelv.value=lista[b].nivel
+        // levelv.value=lista[b].nivel
         lista[b].opc==2?document.querySelector("#mig").checked = true:document.querySelector("#insta").checked = true;
         lista[b].ASM=="Test"?document.querySelector("#test").checked = true:document.querySelector("#accept").checked = true;
         lista[b].fecha=="Now" || lista[b].fecha=="-"?calendarizar.checked = false:calendarizar.checked = true; tiempo.value = lista[b].fecha;
@@ -324,11 +410,20 @@ function Deletecontroller(e) {
 }
 function Resetform(){
     form.reset()
+    if(document.querySelector('.CommonSELECTION')){
+        document.querySelector('.CommonSELECTION').parentElement.removeChild(document.querySelector('.CommonSELECTION').parentElement.lastChild)
+        
+    }
+    if(document.querySelector('.PinPadSELECTION')){
+        document.querySelector('.PinPadSELECTION').parentElement.removeChild( document.querySelector('.PinPadSELECTION').parentElement.lastChild)
+    }
+    for (let i = 0; i < ACEP.length; i++) {
+        document.querySelector(ACEP[i]).disabled = true
+    }
+    tiempo.disabled = true;
 }
 
-
-
-function jenkins(e){
+async function jenkins (e){
     console.log('llamando a jenkins')
     // e.preventDefault();
     let x=[];
@@ -344,41 +439,64 @@ function jenkins(e){
 
     }
     if( x == ''){
-        fetch('../Versiones.json')
-        .then(respuesta  =>{
-          //   console.log(respuesta)
-            return respuesta.json();
-        } )
-        .then(resultado => {
-          // console.log(resultado)
-          ComenzarInstalacion(resultado);
-        })  
-    }else{
-        dontwork('No se puede continuar',x)
-    }
+        h=0
+        // console.log(typeof(complementosjson))    
+        lista.forEach(controlador => {
 
+            const positions =[];
+            controlador.nivel != 0 ? positions.push('ACE3D') : x =0;
+            controlador.nivelEPS != 0 ? positions.push('ACE4D') : x =0;
+            controlador.TCxpay != 0 ? positions.push('ACE6D') : x =0;
+            FindComplement(controlador, positions, h)
+            // console.log(lista[h])  
+            h=h+1
+
+        });
+        console.log(lista)  
+        ComenzarInstalacion()
+    }else{
+        dontwork('You must fill in all the parameters berfore start the installation',x)
+    }
 }
 
-function ComenzarInstalacion(resultado){
+function FindComplement(controlador,positions,h){
 
-    let i =0;
-    lista.forEach(controlador => {
-
-        for (const x in resultado){
-            if (controlador.version==x){
-                comple = resultado[x].find( Object => Object.nivel === controlador.nivel)
+    const temp = []
+    for (x in positions){
+        for (type in complementosjson){
+            if(positions[x]=='ACE'+complementosjson[type].substring(12,14)){
+                temp.push(complementosjson[type])
             }
         }
-        const enlace = document.querySelector('.comenzar')
-        // console.log(controlador.nivel)
-        // console.log(comple.complemento)
-        // enlace.setAttribute('href',`http://jenkins3.rtptgcs.com:28084/job/ACE_UnattendedInstallation/buildWithParameters?token=token_ace&Version=${controlador.version}&level_name=${controlador.nivel}&level_complement=${comple.complemento}&opc=${controlador.opc}&import_inventory=controller("${controlador.ip}","${controlador.usr}","${controlador.pass}")&ASM=${controlador.ASM}`)
-        // console.log(`http://jenkins3.rtptgcs.com:28084/job/ACE_UnattendedInstallation/buildWithParameters?token=token_ace&Version=${controlador.version}&level_name=${controlador.nivel}&level_complement=${comple.complemento}&opc=${controlador.opc}&import_inventory=controller("${controlador.ip}","${controlador.usr}","${controlador.pass}")&ASM=${controlador.ASM}`)
-        // window.open(`http://jenkins3.rtptgcs.com:28084/job/ACE_UnattendedInstallation/buildWithParameters?token=token_ace&Version=${controlador.version}&level_name=${controlador.nivel}&level_complement=${comple.complemento}&opc=${controlador.opc}&import_inventory=controller("${controlador.ip}","${controlador.usr}","${controlador.pass}")&ASM=${controlador.ASM}`,'_blank');
-        console.log(i)
-        lista[i].complemento=comple.complemento;
-        i=i+1;
-    });
+    }
+    temp.forEach(buscar =>{
+        const resultado= fetch(buscar)
+        .then(respuesta  =>{return respuesta.json();})
+        .then(resultado => {return resultado})
+        const printAddress = () => {
+            resultado.then((resultado) => {
+                for (const x in resultado){
+                    // console.log(x)
+                    if (controlador.version==x){
+                        comple = resultado[x].find( Object => Object.nivel === controlador.nivel)
+                    }
+                }
+                    console.log(comple.complemento)
+                    const types = comple.complemento.substring(0,2)
+                    if(types == '3D'){lista[h].ACE3Dcomple = comple.complemento.substring(3)}  
+                    if(types == '4D'){lista[h].ACE4Dcomple = comple.complemento.substring(3)} 
+                    if(types == '6D'){lista[h].ACE6Dcomple = comple.complemento.substring(3) }                  
+
+            });
+          };
+          
+        printAddress();
+
+    })
+}
+
+function ComenzarInstalacion(){
+
     // console.log(lista)
     const data={Controladores : lista}
     const options = {
@@ -388,7 +506,7 @@ function ComenzarInstalacion(resultado){
         },
         body: JSON.stringify(data)
     };
-    fetch('http://10.89.182.86:4000/',options)
+    fetch('http://localhost:4000/',options)
         .then((response) => response.json())
         .then((data) => {
           console.log('Success:', data);

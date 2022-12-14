@@ -1,0 +1,244 @@
+{
+  "TCxpaycommon": [
+  {
+  "id":1,
+  "nivel": "1.2.10--29",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.10--29/tcxpay-pinpad-spt-asm-1.2.10--29.iso"
+},
+  {
+  "id":2,
+  "nivel": "1.2.10--30",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.10--30/tcxpay-pinpad-spt-asm-1.2.10--30.iso"
+},
+  {
+  "id":3,
+  "nivel": "1.2.10--31",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.10--31/tcxpay-pinpad-spt-asm-1.2.10--31.iso"
+},
+  {
+  "id":4,
+  "nivel": "1.2.10--32",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.10--32/tcxpay-pinpad-spt-asm-1.2.10--32.iso"
+},
+  {
+  "id":5,
+  "nivel": "1.2.10--33",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.10--33/tcxpay-pinpad-spt-asm-1.2.10--33.iso"
+},
+  {
+  "id":6,
+  "nivel": "1.2.10--34",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.10--34/tcxpay-pinpad-spt-asm-1.2.10--34.iso"
+},
+  {
+  "id":7,
+  "nivel": "1.2.10--35",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.10--35/tcxpay-pinpad-spt-asm-1.2.10--35.iso"
+},
+  {
+  "id":8,
+  "nivel": "1.2.10--36",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.10--36/tcxpay-pinpad-spt-asm-1.2.10--36.iso"
+},
+  {
+  "id":9,
+  "nivel": "1.2.10--37",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.10--37/tcxpay-pinpad-spt-asm-1.2.10--37.iso"
+},
+  {
+  "id":10,
+  "nivel": "1.2.10--38",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.10--38/tcxpay-pinpad-spt-asm-1.2.10--38.iso"
+},
+  {
+  "id":11,
+  "nivel": "1.2.10--39",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.10--39/tcxpay-pinpad-spt-asm-1.2.10--39.iso"
+},
+  {
+  "id":12,
+  "nivel": "1.2.11--10",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.11--10/tcxpay-pinpad-spt-asm-1.2.11--10.iso"
+},
+  {
+  "id":13,
+  "nivel": "1.2.11--11.0001",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.11--11.0001/tcxpay-pinpad-spt-asm-1.2.11--11.0001.iso"
+},
+  {
+  "id":14,
+  "nivel": "1.2.11--11.0002",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.11--11.0002/tcxpay-pinpad-spt-asm-1.2.11--11.0002.iso"
+},
+  {
+  "id":15,
+  "nivel": "1.2.11--17",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.11--17/tcxpay-pinpad-spt-asm-1.2.11--17.iso"
+},
+  {
+  "id":16,
+  "nivel": "1.2.11--18",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.11--18/tcxpay-pinpad-spt-asm-1.2.11--18.iso"
+},
+  {
+  "id":17,
+  "nivel": "1.2.11--19",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.11--19/tcxpay-pinpad-spt-asm-1.2.11--19.iso"
+},
+  {
+  "id":18,
+  "nivel": "1.2.12--62",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.12--62/tcxpay-pinpad-spt-asm-1.2.12--62.iso"
+},
+  {
+  "id":19,
+  "nivel": "1.2.12--63",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.12--63/tcxpay-pinpad-spt-asm-1.2.12--63.iso"
+},
+  {
+  "id":20,
+  "nivel": "1.2.7--54",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.7--54/tcxpay-pinpad-spt-asm-1.2.7--54.iso"
+},
+  {
+  "id":21,
+  "nivel": "1.2.7--54.0001",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.7--54.0001/tcxpay-pinpad-spt-asm-1.2.7--54.0001.iso"
+},
+  {
+  "id":22,
+  "nivel": "1.2.7--54.0002",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.7--54.0002/tcxpay-pinpad-spt-asm-1.2.7--54.0002.iso"
+},
+  {
+  "id":23,
+  "nivel": "1.2.7--54.0003",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.7--54.0003/tcxpay-pinpad-spt-asm-1.2.7--54.0003.iso"
+},
+  {
+  "id":24,
+  "nivel": "1.2.7--54.0004",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.7--54.0004/tcxpay-pinpad-spt-asm-1.2.7--54.0004.iso"
+},
+  {
+  "id":25,
+  "nivel": "1.2.7--55",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.7--55/tcxpay-pinpad-spt-asm-1.2.7--55.iso"
+},
+  {
+  "id":26,
+  "nivel": "1.2.7--56",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.7--56/tcxpay-pinpad-spt-asm-1.2.7--56.iso"
+},
+  {
+  "id":27,
+  "nivel": "1.2.7--57",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.7--57/tcxpay-pinpad-spt-asm-1.2.7--57.iso"
+},
+  {
+  "id":28,
+  "nivel": "1.2.7--58",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.7--58/tcxpay-pinpad-spt-asm-1.2.7--58.iso"
+},
+  {
+  "id":29,
+  "nivel": "1.2.7--59",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.7--59/tcxpay-pinpad-spt-asm-1.2.7--59.iso"
+},
+  {
+  "id":30,
+  "nivel": "1.2.8--12",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.8--12/tcxpay-pinpad-spt-asm-1.2.8--12.iso"
+},
+  {
+  "id":31,
+  "nivel": "1.2.8--13",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.8--13/tcxpay-pinpad-spt-asm-1.2.8--13.iso"
+},
+  {
+  "id":32,
+  "nivel": "1.2.8--14",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.8--14/tcxpay-pinpad-spt-asm-1.2.8--14.iso"
+},
+  {
+  "id":33,
+  "nivel": "1.2.8--15",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.8--15/tcxpay-pinpad-spt-asm-1.2.8--15.iso"
+},
+  {
+  "id":34,
+  "nivel": "1.2.8--16",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.8--16/tcxpay-pinpad-spt-asm-1.2.8--16.iso"
+},
+  {
+  "id":35,
+  "nivel": "1.2.8--17",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.8--17/tcxpay-pinpad-spt-asm-1.2.8--17.iso"
+},
+  {
+  "id":36,
+  "nivel": "1.2.8--18",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.8--18/tcxpay-pinpad-spt-asm-1.2.8--18.iso"
+},
+  {
+  "id":37,
+  "nivel": "1.2.8--19",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.8--19/tcxpay-pinpad-spt-asm-1.2.8--19.iso"
+},
+  {
+  "id":38,
+  "nivel": "1.2.8--20",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.8--20/tcxpay-pinpad-spt-asm-1.2.8--20.iso"
+},
+  {
+  "id":39,
+  "nivel": "1.2.9--21",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.9--21/tcxpay-pinpad-spt-asm-1.2.9--21.iso"
+},
+  {
+  "id":40,
+  "nivel": "1.2.9--22",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.9--22/tcxpay-pinpad-spt-asm-1.2.9--22.iso"
+},
+  {
+  "id":41,
+  "nivel": "1.2.9--23",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.9--23/tcxpay-pinpad-spt-asm-1.2.9--23.iso"
+},
+  {
+  "id":42,
+  "nivel": "1.2.9--24",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.9--24/tcxpay-pinpad-spt-asm-1.2.9--24.iso"
+},
+  {
+  "id":43,
+  "nivel": "1.2.9--25",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.9--25/tcxpay-pinpad-spt-asm-1.2.9--25.iso"
+},
+  {
+  "id":44,
+  "nivel": "1.2.9--26",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.9--26/tcxpay-pinpad-spt-asm-1.2.9--26.iso"
+},
+  {
+  "id":45,
+  "nivel": "1.2.9--27",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.9--27/tcxpay-pinpad-spt-asm-1.2.9--27.iso"
+},
+  {
+  "id":46,
+  "nivel": "1.2.9--28",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.9--28/tcxpay-pinpad-spt-asm-1.2.9--28.iso"
+},
+  {
+  "id":47,
+  "nivel": "1.2.9--29",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.9--29/tcxpay-pinpad-spt-asm-1.2.9--29.iso"
+},
+  {
+  "id":48,
+  "nivel": "1.2.9--30",
+  "url": "http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.9--30/tcxpay-pinpad-spt-asm-1.2.9--30.iso"
+}
+  ]
+}
