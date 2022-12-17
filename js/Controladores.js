@@ -182,7 +182,9 @@ function inicioApp() {
         Agregar.disabled = true
         comenzar.disabled=true
     }
-
+    lista[indice-1].ACE3Dcomple = 0
+    lista[indice-1].ACE4Dcomple = 0
+    lista[indice-1].ACE6Dcomple = 0  
 }
 
 function obtenerdato(ve){
@@ -320,7 +322,11 @@ function parametros(e) {
         tcxpayproducts = true
     }
     console.log(tcxpayproducts)
+    lista[indice-1].ACE3Dcomple = 0
+    lista[indice-1].ACE4Dcomple = 0
+    lista[indice-1].ACE6Dcomple = 0  
     validarFormulario(tcxpayproducts);
+    
 
 }
 
@@ -371,6 +377,9 @@ function Deletecontroller(e) {
         inicioApp();
     }
     if (e.target.classList.contains('editar')) {
+        lista[indice-1].ACE3Dcomple = 0
+        lista[indice-1].ACE4Dcomple = 0
+        lista[indice-1].ACE6Dcomple = 0  
         const b = parseInt(e.target.id);
         Resetform();
 
@@ -444,16 +453,26 @@ async function jenkins (e){
         lista.forEach(controlador => {
 
             const positions =[];
-            controlador.nivel != 0 ? positions.push('ACE3D') : x =0;
-            controlador.nivelEPS != 0 ? positions.push('ACE4D') : x =0;
-            controlador.TCxpay != 0 ? positions.push('ACE6D') : x =0;
+            controlador.nivel != 0 ? positions.push('ACE3D') : j=0;
+            controlador.nivelEPS != 0 ? positions.push('ACE4D') : j =0;
+            controlador.TCxpay != 0 ? positions.push('ACE6D') : j =0;
             FindComplement(controlador, positions, h)
             // console.log(lista[h])  
             h=h+1
 
         });
         console.log(lista)  
-        ComenzarInstalacion()
+        const x = document.createElement("div")
+        x.classList.add('d-flex')
+        x.classList.add('justify-content-center')
+        x.classList.add('m-5')
+        x.innerHTML=`<div class="lds-roller1"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`
+        const temp = document.querySelector('.t1')
+        temp.insertBefore(x , document.querySelector('.m-1'));
+        setTimeout(()=>{
+            ComenzarInstalacion(x)
+        },1000)
+
     }else{
         dontwork('You must fill in all the parameters berfore start the installation',x)
     }
@@ -495,7 +514,7 @@ function FindComplement(controlador,positions,h){
     })
 }
 
-function ComenzarInstalacion(){
+function ComenzarInstalacion(x){
 
     // console.log(lista)
     const data={Controladores : lista}
@@ -506,13 +525,16 @@ function ComenzarInstalacion(){
         },
         body: JSON.stringify(data)
     };
-    fetch('http://localhost:4000/',options)
+    fetch('http://10.89.182.86:4000/',options)
+    // fetch('http://localhost:4000/',options)
         .then((response) => response.json())
         .then((data) => {
           console.log('Success:', data);
+          x.remove();
           gren( `${data.msg}`)
         })
         .catch((error) => {
+            x.remove();
             dontwork( `: ${error}`)
           console.log('Error:', error);
           
