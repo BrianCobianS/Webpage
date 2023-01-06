@@ -13,6 +13,7 @@ const check=document.querySelector('.check')
 const ipc=document.querySelector('.ipc')
 const passc=document.querySelector('.passc')
 const usrc=document.querySelector('.usrc')
+const here=document.querySelector('.here')
 const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 let lista=[];
@@ -43,6 +44,92 @@ function cargarEventListeners() {
     // e.preventDefault();
       verificarcheck();
   });
+  here.addEventListener('click',(e)=>{
+    const papa = document.querySelector('.parent')
+    const x = document.createElement("p")
+    x.classList.add('instru')
+    x.innerHTML=`
+    <br><strong style="color: red"> Basic Setup to run Ansible recipes on TCx Sky</strong></br>
+    - Infrastructure Requirements:
+    <ol>
+    <li>- Switch configured into a VLAN (Provided by IT team)</li>
+    <li>- Controller</li></ol>
+    The switch should be connected from the defined UPLINK PORT (port 12 or 24) 
+    to the green port, and controller connected to switch on any other available port.
+    <br></br>
+    <strong style="color: red"> Configuring Controller</strong >
+    <br>- Setup Controller as always is configured (Setup Backgrounds, RAM disks, 
+    Video attributes, Network File System Data, Auxiliary Console).</br>
+    - DHCP Setup: On Controller Configuration -> DHCP Server, configure values in accordance to switch info.
+    <br>- Example switch info:</br>
+    <ul>
+    <li>      VLAN: 609</li>
+    <li>      SUBNET: 10.89.96.64</li>
+    <li>      MASK: 255.255.255.224</li>
+    <li>      GATEWAY: 10.89.96.65</li>
+    <li>     HOST RANGE: 10.89.96.66 - 10.89.96.94 </li>
+    </ul>
+    - Setup on Controller Configuration -> DHCP Server -> Subnet Definitions -> New:
+    <ul>
+    <li>      Subnet: 10.89.96.64</li>
+    <li>      Mask: 255.255.255.224</li>
+    <li>      From: 10.89.96.70</li>
+    <li>      To: 10.89.96.94</li>
+    <li>      Network Mask: 255.255.255.224</li>
+    <li>      Router: 10.89.96.65</li>
+    </ul>
+    - IP config file ADX_SDT1:ADXIPXXZ.BAT where XX is the controller name:
+    <ul>
+    <li>      adxhsi2l 256</li>
+    <li>      ifconfig lan0 10.89.96.66 netmask 255.255.255.224 eloopaddr last</li>
+    <li>      ifconfig lo0 127.0.0.1 netmask 255.255.255.0</li>
+    <li>      route add default 10.89.96.65 1</li>
+    </ul>
+
+    <strong style="color: red"> Verification Point: At this moment, Controller should respond ping From any machine on the Net (Personal Laptop).</strong>
+    <br></br>
+    <strong style="color: red">Configuring Auxiliary Consoles</strong>
+    <ul>
+    <li> Go Controller Configuration -> Auxiliary Consoles -> Add Console Definition.</li>
+    <li> Add at least 2 Console definitions.</li>
+    <li> Activate changes.</li>
+    </ul>
+    <strong style="color: red">Enabling Enhanced Security</strong>
+    <ul>
+    <li> On System Configuration enable Enhanced Security:</li>
+    o Create a new user and password (i.e. master).
+    <li> Activate changes and reboot Controller.</li>
+    </ul>
+    <strong style="color: red">SSH Services</strong>
+    <ul>
+    <li> Start SSH services on System Configuration -> Network Security.</li>
+    <li> Now, in Controller Configuration -> Extensions.</li>
+    o Select: [ ] SSH Enablement (ADXXTSSH.DAT).
+    <li> Activate changes and reboot controller.</li>
+    <li> Verify SSH is active:</li>
+    </ul>
+    C:> sshdctl
+    <br> - Create file VX_SSHDF.DAT using sample file as follows:</br>
+    <br>C:> COPY ADX_SDT1:VX_SSHDF.SMP *.DAT.</br>
+    <br>- Create file VX_SSHXH.DAT with the next info to provide read/write permissions to the user in the controller:</br>
+    <ul>
+    <li>      user: master</li>
+    <li>      rd: C:/ F:/</li>
+    <li>      wr: C:/ F:/</li>
+    </ul>
+    - Reload SSH service:
+    <br>C:> sshdctl reload</br>
+    <br><strong style="color: red"> Verification Point: You should be able to connect via SSH to the controller: ssh master@Controller_IP.</strong></br>
+    <br><strong style="color: white">This information was provided by Daniel Casal from the 4690 OS and SI Development team here is the reference to the original information: <a style="color: white" href="http://tgcsgitlab.rtptgcs.com:20080/os4690/test_automation/user-guide/-/blob/master/4690_Automation_Setup.md"> Gitlab repository</a><strong style="color: red"></br>
+    `
+  console.log(document.querySelectorAll('.instru').length)
+  if (document.querySelectorAll('.instru').length>0){
+    console.log('Yastaestamaiz')
+  }else{
+    papa.appendChild(x)
+  }
+
+  })
 }
 
 function inicioApp() {
