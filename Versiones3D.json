@@ -2,162 +2,112 @@
   "Jedi": [
   {
   "id":1,
-  "nivel": "V8R1SP2.j292.1",
-  "complemento": "3D V8R1SP2.j292.1-20221111.223820-1"
+  "nivel": "V8R1SP2.j239.11",
+  "complemento": "3D V8R1SP2.j239.11-20221215.201137-1"
  },
   {
   "id":2,
-  "nivel": "V8R1SP2.j298",
-  "complemento": "3D V8R1SP2.j298-20221109.215031-2"
+  "nivel": "V8R1SP2.j239.12",
+  "complemento": "3D V8R1SP2.j239.12-20230104.171149-1"
  },
   {
   "id":3,
-  "nivel": "V8R1SP2.j301",
-  "complemento": "3D V8R1SP2.j301-20221110.173537-1"
+  "nivel": "V8R1SP2.j293.1",
+  "complemento": "3D V8R1SP2.j293.1-20221215.171058-1"
  },
   {
   "id":4,
-  "nivel": "V8R1SP2.j302",
-  "complemento": "3D V8R1SP2.j302-20221117.173637-1"
+  "nivel": "V8R1SP2.j293.2",
+  "complemento": "3D V8R1SP2.j293.2-20230104.184232-1"
  },
   {
   "id":5,
-  "nivel": "V8R1SP2.j303",
-  "complemento": "3D V8R1SP2.j303-20221124.173644-1"
- },
-  {
-  "id":6,
   "nivel": "V8R1SP2.j304",
   "complemento": "3D V8R1SP2.j304-20221207.051618-2"
  },
   {
+  "id":6,
+  "nivel": "V8R1SP2.j306",
+  "complemento": "3D V8R1SP2.j306-20221215.184321-1"
+ },
+  {
   "id":7,
-  "nivel": "V8R1SP2.j305",
-  "complemento": "3D V8R1SP2.j305-20221208.173413-1"
+  "nivel": "V8R1SP2.j308",
+  "complemento": "3D V8R1SP2.j308-20230103.060842-2"
+ },
+  {
+  "id":8,
+  "nivel": "V8R1SP2.j309",
+  "complemento": "3D V8R1SP2.j309-20230106.230624-1"
 }
   ],
   "Leia": [
   {
   "id":1,
-  "nivel": "V8R2.l145.10",
-  "complemento": "3D V8R2.l145.10-20221202.191303-1"
- },
-  {
-  "id":2,
-  "nivel": "V8R2.l145.11",
-  "complemento": "3D V8R2.l145.11-20221207.181953-1"
- },
-  {
-  "id":3,
   "nivel": "V8R2.l145.12",
   "complemento": "3D V8R2.l145.12-20221208.214507-1"
  },
   {
+  "id":2,
+  "nivel": "V8R2.l145.13",
+  "complemento": "3D V8R2.l145.13-20230104.005305-1"
+ },
+  {
+  "id":3,
+  "nivel": "V8R2.l145.14",
+  "complemento": "3D V8R2.l145.14-20230105.225250-1"
+ },
+  {
   "id":4,
-  "nivel": "V8R2.l145.8",
-  "complemento": "3D V8R2.l145.8-20221116.190612-1"
+  "nivel": "V8R2.l145.15",
+  "complemento": "3D V8R2.l145.15-20230106.214746-1"
  },
   {
   "id":5,
-  "nivel": "V8R2.l145.9",
-  "complemento": "3D V8R2.l145.9-20221201.224554-1"
+  "nivel": "V8R2.l180",
+  "complemento": "3D V8R2.l180-20221220.045331-2"
  },
   {
   "id":6,
-  "nivel": "V8R2.l171",
-  "complemento": "3D V8R2.l171-20221020.021635-7"
+  "nivel": "V8R2.l181",
+  "complemento": "3D V8R2.l181-20221222.174830-1"
  },
   {
   "id":7,
-  "nivel": "V8R2.l176",
-  "complemento": "3D V8R2.l176-20221123.044132-3"
+  "nivel": "V8R2.l182",
+  "complemento": "3D V8R2.l182-20221229.175217-1"
  },
   {
   "id":8,
-  "nivel": "V8R2.l177",
-  "complemento": "3D V8R2.l177-20221129.173751-3"
- },
-  {
-  "id":9,
-  "nivel": "V8R2.l178",
-  "complemento": "3D V8R2.l178-20221202.173714-2"
- },
-  {
-  "id":10,
-  "nivel": "V8R2.l179",
-  "complemento": "3D V8R2.l179-20221210.045159-3"
+  "nivel": "V8R2.l183",
+  "complemento": "3D V8R2.l183-20230106.051201-2"
 }
   ],
   "Morty": [
   {
   "id":1,
-  "nivel": "V8R3.m112.4",
-  "complemento": "3D V8R3.m112.4-20221130.211607-1"
+  "nivel": "V8R3.m125",
+  "complemento": "3D V8R3.m125-20221214.083008-5"
  },
   {
   "id":2,
-  "nivel": "V8R3.m112.5",
-  "complemento": "3D V8R3.m112.5-20221206.165832-1"
+  "nivel": "V8R3.m126",
+  "complemento": "3D V8R3.m126-20221220.084544-3"
  },
   {
   "id":3,
-  "nivel": "V8R3.m112.6",
-  "complemento": "3D V8R3.m112.6-20221208.214056-1"
+  "nivel": "V8R3.m127",
+  "complemento": "3D V8R3.m127-20221228.083731-2"
  },
   {
   "id":4,
-  "nivel": "V8R3.m113.10",
-  "complemento": "3D V8R3.m113.10-20221204.000752-1"
+  "nivel": "V8R3.m128",
+  "complemento": "3D V8R3.m128-20221229.174514-1"
  },
   {
   "id":5,
-  "nivel": "V8R3.m113.9",
-  "complemento": "3D V8R3.m113.9-20221130.012242-1"
- },
-  {
-  "id":6,
-  "nivel": "V8R3.m119.1",
-  "complemento": "3D V8R3.m119.1-20221207.000852-1"
- },
-  {
-  "id":7,
-  "nivel": "V8R3.m121.1",
-  "complemento": "3D V8R3.m121.1-20221130.030142-1"
- },
-  {
-  "id":8,
-  "nivel": "V8R3.m121.2",
-  "complemento": "3D V8R3.m121.2-20221209.204706-1"
- },
-  {
-  "id":9,
-  "nivel": "V8R3.m122",
-  "complemento": "3D V8R3.m122-20221122.025522-3"
- },
-  {
-  "id":10,
-  "nivel": "V8R3.m123",
-  "complemento": "3D V8R3.m123-20221130.093803-3"
- },
-  {
-  "id":11,
-  "nivel": "V8R3.m124",
-  "complemento": "3D V8R3.m124-20221208.055232-7"
- },
-  {
-  "id":12,
-  "nivel": "V8R3.m125",
-  "complemento": "3D V8R3.m125-20221210.021306-3"
- },
-  {
-  "id":13,
-  "nivel": "V8R3.n067",
-  "complemento": "3D V8R3.n067-20221207.224722-2"
- },
-  {
-  "id":14,
-  "nivel": "V8R3.n068",
-  "complemento": "3D V8R3.n068-20221210.032156-1"
+  "nivel": "V8R3.m129",
+  "complemento": "3D V8R3.m129-20230106.084659-2"
 }
   ]
 }

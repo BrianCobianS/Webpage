@@ -17,6 +17,10 @@ const tabla = document.querySelector('.tabla')
 const comenzar = document.querySelector("#bntjenkins")
 let jsondocument= '../Versiones6D.json'
 const complementosjson = [ '../Versiones3D.json','../Versiones4D.json', '../Versiones6D.json']
+const span = document.querySelector(".controllerlevel span")
+const btng = document.querySelector('.btn-group')
+const btnml = document.querySelector('.RML')
+const title = document.querySelector('.titulo')
 
 cargarEventListeners();
 function cargarEventListeners() {
@@ -30,11 +34,191 @@ function cargarEventListeners() {
         // e.preventDefault();
         parametros(e);
     })
+    btnml.addEventListener('click',CML)
     tiempo.disabled = true;
     for (let i = 0; i < ACEP.length; i++) {
         document.querySelector(ACEP[i]).disabled = true
     }
     comenzar.addEventListener('click', jenkins)
+    btng.addEventListener('click', Reportml)
+}
+
+function CML(e) {
+    // console.log(e.target)
+    // check.disabled = true
+    limpiarHTML(document.querySelector('.CHAILD'))
+    const x = document.createElement("div")
+    x.classList.add('d-flex')
+    x.classList.add('justify-content-center')
+    x.classList.add('mb-5')
+    x.classList.add('mt-5')
+    x.innerHTML=`<div class="lds-roller1"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`
+    // setTimeout(() => {
+    // x.remove();
+    // }, 5000);
+    document.querySelector('.CHAILD').appendChild(x)
+    console.log(title.id)
+
+    
+    const checkcontroller = {
+        ip: lista[indice-1].ip, 
+        usr: lista[indice-1].usr, 
+        pass: lista[indice-1].pass,
+        type: "-"
+    }
+    if(title.id=='ACE'){ checkcontroller.type = 'AG'}
+    if(title.id=='EPS'){ checkcontroller.type = 'AI' }
+    if(title.id=='PAY'){ checkcontroller.type = 'DA'  }
+    console.log(checkcontroller)
+    const data={checkcontroller}
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    };
+    fetch('http://10.89.182.86:4000/ML',options)
+        .then((response) => response.json())
+        .then((data) => {
+        console.log('Success:', data);
+        // check.disabled = false
+        x.remove();
+            if(data.error){
+                const x = document.createElement("div")
+                x.innerHTML=`
+                <div class="alert alert-danger fade show error1 danger mt-3 mb-3" role="alert">
+                <strong style="color: white;">UNREACHABLE!</strong> The controller <strong style="color: white;"> ${checkcontroller.ip}</strong>  can't be reach.
+                </div>
+                `;
+                const errores = document.querySelectorAll('.error1')
+                if(errores.length == 0){
+                document.querySelector('.CHAILD').appendChild(x)
+                }
+            }else{
+                printdata(data);
+            }
+        })
+        .catch((error) => {
+            // check.disabled = false
+            console.log('Error:', error);
+            x.remove();
+            const msg = document.createElement("div")
+            msg.innerHTML=`
+            <div class="alert alert-danger fade show error1 danger mt-3 mb-3" role="alert">
+            <strong style="color: white;">Connection failed!</strong> The server couldn't be reach.
+            </div>
+            `;
+            const errores = document.querySelectorAll('.error1')
+            if(errores.length == 0){
+                document.querySelector('.CHAILD').appendChild(msg);
+            }
+          });
+}
+
+function printdata(data){
+    console.log(data)
+    const {versiones}=data
+    console.log(versiones[0])
+    // var type=''
+    const x = document.createElement('div')
+    x.classList.add('row')
+    // if (versiones.Maintenance.ACE3D != 'None' || versiones.Backup.ACE3D != 'None'){
+    //   if (versiones.Maintenance.ACE3D == 'None'){type=versiones.Backup}else{type=versiones.Maintenance}
+    title.textContent = versiones[0].Product
+     x.innerHTML=`
+      <div class="ml-5 col-md-5 p-lg-5" > 
+      <div class="card border-dark bg-success" style="width: 18rem;">
+      <div class="card-header border-dark"><h5 class="card-title text-center ">Current level</h5></div>
+          <div class="card-body text-sm-start">
+              <h6 class="card-subtitle mb-2 fw-light">PID =  <strong class="font-weight-bold">${versiones[0].PID}</strong> </h6>
+              <h6 class="card-subtitle mb-2 fw-light">SP/Build =  <strong class="font-weight-bold">${versiones[0].SP_Build}</strong></h6>
+              <h6 class="card-subtitle mb-2 fw-light">Release =  <strong class="font-weight-bold">${versiones[0].Release}</strong></h6>
+              <h6 class="card-subtitle mb-2 fw-light">Base level =  <strong class="font-weight-bold">${versiones[0].Base_level}</strong></h6>
+              <h6 class="card-subtitle mb-2 fw-light">Date applied=  <strong class="font-weight-bold">${versiones[0].DateApplied}</strong></h6>
+              <h6 class="card-subtitle mb-2 fw-light">PTF = <strong class="font-weight-bold"> ${versiones[0].PTF}</strong></h6>
+              <h6 class="card-subtitle mb-2 fw-light">Emergency Fix =  <strong class="font-weight-bold">${versiones[0].Emergencyfix}</strong></h6>
+          </div>
+      </div>
+  </div>
+  <div class="ml-5 col-md-5 p-lg-5" > 
+    <div class="card border-dark" style="width: 18rem;">
+    <div class="card-header bg-transparent border-dark "><h5 class="card-title text-center ">Backup level</h5></div>
+        <div class="card-body text-sm-start aqui">
+            <h6 class="card-subtitle mb-2 fw-light">PID =  <strong class="font-weight-bold">${versiones[1].PID.substring(0,7)}</strong> </h6>
+            <h6 class="card-subtitle mb-2 fw-light">SP/Build =  <strong class="font-weight-bold">${versiones[1].SP_Build.substring(0,4)}</strong></h6>
+            <h6 class="card-subtitle mb-2 fw-light">Release =  <strong class="font-weight-bold">${versiones[1].Release}</strong></h6>
+            <h6 class="card-subtitle mb-2 fw-light">Base level =  <strong class="font-weight-bold">${versiones[1].Base_level}</strong></h6>
+            <h6 class="card-subtitle mb-2 fw-light">Date applied=  <strong class="font-weight-bold">${versiones[1].DateApplied}</strong></h6>
+            <h6 class="card-subtitle mb-2 fw-light">PTF = <strong class="font-weight-bold"> ${versiones[1].PTF}</strong></h6>
+            <h6 class="card-subtitle mb-2 fw-light">Emergency Fix =  <strong class="font-weight-bold">${versiones[1].Emergencyfix}</strong></h6>
+        </div>
+    </div>
+    </div>
+    `
+    document.querySelector('.CHAILD').appendChild(x)
+    // console.log(versiones[1].PID)
+    // console.log(versiones[1].PID != 'None')
+
+
+    if (versiones[1].PID != 'None') {
+        const z = document.createElement('h6')
+        z.classList.add("card-subtitle")
+        z.classList.add("mb-2")
+        z.classList.add("fw-light")
+        z.textContent = 'Note: '
+        const y = document.createElement('strong')
+        y.classList.add("font-weight-bold")
+        y.textContent='Remember to accept the maintenance before starting the installation.'
+        z.appendChild(y)
+        document.querySelector('.aqui').appendChild(z)
+    }
+    
+    // }else{
+    //   x.innerHTML=`
+    //   <div class="coments mb-3">
+    //     <div class="container">
+    //         <p><strong style="color: white">Controller:</strong> </p>
+    //         <div class="row">
+    //             <div class="col-lg-6">
+    //                 <p><strong style="color: white">Currer  levels:</strong> </p>
+    //                 <p><strong style="color: white">ACE 3D : ${versiones.Current.ACE3D}</strong> </p>
+    //                 <p><strong style="color: white">ACE EPS : ${versiones.Current.EPS}</strong> </p>
+    //                 <p><strong style="color: white">TCXpay: ${versiones.Current.Txcpay}</strong> </p>
+    //             </div>
+    //         </div>
+    //     </div>
+    //   </div>    
+    // `
+    // }
+  
+  
+   
+    
+  
+}
+
+
+function Reportml(e){
+    btng.children[0].classList.remove('btn-danger')
+    btng.children[1].classList.remove('btn-danger')
+    btng.children[2].classList.remove('btn-danger')
+
+    e.target.classList.add('btn-danger')
+    e.target.classList.remove('btn-light')
+    
+    console.log(e.target.textContent == 'ACE EPS')
+    if (e.target.textContent == 'ACE EPS') {
+        title.textContent= 'ACE EPS ----'
+        title.setAttribute("id","EPS");
+    }if (e.target.textContent=='SurePOS ACE') {
+        title.textContent='Toshiba SurePOS ACE -----'
+        title.setAttribute("id","ACE");
+    } if(e.target.textContent=='Tcxpay'){
+        title.textContent='Toshiba TcxPay for ACE -----'
+        title.setAttribute("id","PAY");
+    }
+    
 }
 
 function seleccion(e) {
@@ -168,17 +352,23 @@ function inicioApp() {
         temp.textContent = ` You are modifying the controller`
         const bold = document.createElement('b')
         bold.textContent = ` #${indice} IP: ${lista[indice-1].ip} `
+        span.textContent = ` #${indice} ${lista[indice-1].ip} `
         temp.appendChild(bold)
         Agregar.disabled = false
         comenzar.disabled=false
         temp.classList.remove('alert-danger')
         temp.classList.add('alert-warning')
+        span.classList.remove('bg-danger')
+        span.classList.add('bg-success')
         listacontroladores(0)
         console.log(lista[indice-1].ip)
     } else {
         temp.textContent = ` You have not added any controller`
+        span.textContent = '----'
         temp.classList.remove('alert-warning')
         temp.classList.add('alert-danger')
+        span.classList.remove('bg-success')
+        span.classList.add('bg-danger')
         Agregar.disabled = true
         comenzar.disabled=true
     }
@@ -227,7 +417,7 @@ function listacontroladores(a) {
         const row = document.createElement('tr');
         if (controlador.opc != "-") { controlador.opc == "1" ? mig = "Instalar" : mig = "Migrar"; }else{mig="-"}
         row.innerHTML = `
-               <th scope="row">${i + 1}</th>
+               <th scope="row" >${i + 1}</th>
                <td>${controlador.ip}</td>
                <td>${controlador.usr}</td>
                <td>${controlador.version}</td>
@@ -240,7 +430,6 @@ function listacontroladores(a) {
                <td ><button type="submit" class="btn btn-danger eliminar" style="border-radius: 50px;" id="${i}">
                <i class="fa-solid eliminar fa-trash" id="${i}"></i></button></td>`;
         if (i == indice-1) {
-            console.log["holi"]
             row.innerHTML = `
             <th scope="row">${i + 1}</th>
             <td>${controlador.ip}</td>
