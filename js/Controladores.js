@@ -174,7 +174,7 @@ function printdata(data){
         z.classList.add("ml-3")
         z.innerHTML=`                                
         <div class="alert alert-danger" role="alert" style="border-color:white">
-        Remember to accept the Back-up before starting the installation!
+        Remember to accept or cancel the Back-up before starting the installation!
     </div>
         `
         console.log(z)
