@@ -10,9 +10,6 @@ const start = document.querySelector('.start')
 const ncon= document.querySelector('.ControladorActual')
 const reset=document.querySelector('.btn-primary')
 const check=document.querySelector('.check')
-const ipc=document.querySelector('.ipc')
-const passc=document.querySelector('.passc')
-const usrc=document.querySelector('.usrc')
 const here=document.querySelector('.here')
 const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -27,9 +24,6 @@ function cargarEventListeners() {
   passf.addEventListener('blur',validarFormulario);
   usrf.addEventListener('blur',validarFormulario);
   emailf.addEventListener('blur',validarFormulario);
-  ipc.addEventListener('blur',validarFormularioch);
-  passc.addEventListener('blur',validarFormularioch);
-  usrc.addEventListener('blur',validarFormularioch);
   reset.addEventListener('click',(e) => {
     e.preventDefault();
     ResetForm();
@@ -40,10 +34,6 @@ function cargarEventListeners() {
       verificar();
   });
   gif();
-  check.addEventListener('click', (e) => {
-    // e.preventDefault();
-      verificarcheck();
-  });
   here.addEventListener('click',(e)=>{
     const papa = document.querySelector('.parent')
     const x = document.createElement("p")
@@ -218,75 +208,75 @@ function verificar(){
   }
 }
 
-function verificarcheck(){
+// function verificarcheck(){
 
-  if(ipc.value !== '' && usrc.value  !== '' && passc.value  !== ''){
-    check.disabled = true
-    // concat();
-    // ResetForm();
-    limpiarHTML(cform)
-    const x = document.createElement("div")
-    x.classList.add('d-flex')
-    x.classList.add('justify-content-center')
-    x.classList.add('m-5')
-    x.innerHTML=`<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`
-    // setTimeout(() => {
-    //   x.remove();
-    // }, 5000);
-    cform.appendChild(x)
-    const checkcontroller = {
-      ip: ipc.value, 
-      usr: usrc.value, 
-      pass: passc.value
-    }
-    const data={checkcontroller}
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    };
-    fetch('http://10.89.182.86:4000/ML',options)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log('Success:', data);
-          check.disabled = false
-          x.remove();
-          if(data.error){
-            const x = document.createElement("div")
-            x.innerHTML=`
-            <div class="alert alert-danger fade show error1 danger mt-3 mb-3" role="alert">
-            <strong style="color: white;">UNREACHABLE!</strong> The controller <strong style="color: white;"> ${checkcontroller.ip}</strong>  can't be reach.
-            </div>
-            `;
-            const errores = document.querySelectorAll('.error1')
-            if(errores.length == 0){
-              cform.appendChild(x);
-            }
-          }else{
-            printdata(data);
-          }
-        })
-        .catch((error) => {
-          check.disabled = false
-          console.log('Error:', error);
-          x.remove();
-          const msg = document.createElement("div")
-          msg.innerHTML=`
-          <div class="alert alert-danger fade show error1 danger mt-3 mb-3" role="alert">
-          <strong style="color: white;">Connection failed!</strong> The server couldn't be reach.
-          </div>
-          `;
-          const errores = document.querySelectorAll('.error1')
-          if(errores.length == 0){
-            cform.appendChild(msg);
-          }
-        });
-  }else{
-    errorch("All fields are required");
-  }
-}
+//   if(ipc.value !== '' && usrc.value  !== '' && passc.value  !== ''){
+//     check.disabled = true
+//     // concat();
+//     // ResetForm();
+//     limpiarHTML(cform)
+//     const x = document.createElement("div")
+//     x.classList.add('d-flex')
+//     x.classList.add('justify-content-center')
+//     x.classList.add('m-5')
+//     x.innerHTML=`<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`
+//     // setTimeout(() => {
+//     //   x.remove();
+//     // }, 5000);
+//     cform.appendChild(x)
+//     const checkcontroller = {
+//       ip: ipc.value, 
+//       usr: usrc.value, 
+//       pass: passc.value
+//     }
+//     const data={checkcontroller}
+//     const options = {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(data)
+//     };
+//     fetch('http://10.89.182.86:4000/ML',options)
+//         .then((response) => response.json())
+//         .then((data) => {
+//           console.log('Success:', data);
+//           check.disabled = false
+//           x.remove();
+//           if(data.error){
+//             const x = document.createElement("div")
+//             x.innerHTML=`
+//             <div class="alert alert-danger fade show error1 danger mt-3 mb-3" role="alert">
+//             <strong style="color: white;">UNREACHABLE!</strong> The controller <strong style="color: white;"> ${checkcontroller.ip}</strong>  can't be reach.
+//             </div>
+//             `;
+//             const errores = document.querySelectorAll('.error1')
+//             if(errores.length == 0){
+//               cform.appendChild(x);
+//             }
+//           }else{
+//             printdata(data);
+//           }
+//         })
+//         .catch((error) => {
+//           check.disabled = false
+//           console.log('Error:', error);
+//           x.remove();
+//           const msg = document.createElement("div")
+//           msg.innerHTML=`
+//           <div class="alert alert-danger fade show error1 danger mt-3 mb-3" role="alert">
+//           <strong style="color: white;">Connection failed!</strong> The server couldn't be reach.
+//           </div>
+//           `;
+//           const errores = document.querySelectorAll('.error1')
+//           if(errores.length == 0){
+//             cform.appendChild(msg);
+//           }
+//         });
+//   }else{
+//     errorch("All fields are required");
+//   }
+// }
 
 function printdata(data){
   console.log(data)

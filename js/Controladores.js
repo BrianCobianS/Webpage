@@ -2,7 +2,7 @@ const lista = JSON.parse(sessionStorage.getItem('Controladores'));
 if(sessionStorage.getItem('Controladores')){
     var indice=lista.length
 }
-const temp = document.querySelector(".alert");
+const temp = document.querySelector(".modifing");
 const controllers = document.querySelector(".table tbody")
 const Agregar = document.querySelector(".parametros")
 const ipara = document.querySelector('#parametros')
@@ -45,19 +45,21 @@ function cargarEventListeners() {
 
 function CML(e) {
     // console.log(e.target)
-    // check.disabled = true
+
+    btnml.disabled = true
     limpiarHTML(document.querySelector('.CHAILD'))
     const x = document.createElement("div")
     x.classList.add('d-flex')
     x.classList.add('justify-content-center')
     x.classList.add('mb-5')
     x.classList.add('mt-5')
+    x.classList.add('ml-3')
     x.innerHTML=`<div class="lds-roller1"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`
     // setTimeout(() => {
     // x.remove();
     // }, 5000);
     document.querySelector('.CHAILD').appendChild(x)
-    console.log(title.id)
+    // console.log(title.id)
 
     
     const checkcontroller = {
@@ -69,7 +71,7 @@ function CML(e) {
     if(title.id=='ACE'){ checkcontroller.type = 'AG'}
     if(title.id=='EPS'){ checkcontroller.type = 'AI' }
     if(title.id=='PAY'){ checkcontroller.type = 'DA'  }
-    console.log(checkcontroller)
+    // console.log(checkcontroller)
     const data={checkcontroller}
     const options = {
         method: 'POST',
@@ -81,8 +83,8 @@ function CML(e) {
     fetch('http://10.89.182.86:4000/ML',options)
         .then((response) => response.json())
         .then((data) => {
-        console.log('Success:', data);
-        // check.disabled = false
+        // console.log('Success:', data);
+        btnml.disabled = false
         x.remove();
             if(data.error){
                 const x = document.createElement("div")
@@ -100,8 +102,8 @@ function CML(e) {
             }
         })
         .catch((error) => {
-            // check.disabled = false
-            console.log('Error:', error);
+            btnml.disabled = false
+            // console.log('Error:', error);
             x.remove();
             const msg = document.createElement("div")
             msg.innerHTML=`
@@ -117,19 +119,21 @@ function CML(e) {
 }
 
 function printdata(data){
-    console.log(data)
+    // console.log(data)
     const {versiones}=data
     console.log(versiones[0])
     // var type=''
     const x = document.createElement('div')
     x.classList.add('row')
+    x.classList.add('d-flex')
+    x.classList.add('justify-content-center')
     // if (versiones.Maintenance.ACE3D != 'None' || versiones.Backup.ACE3D != 'None'){
     //   if (versiones.Maintenance.ACE3D == 'None'){type=versiones.Backup}else{type=versiones.Maintenance}
     title.textContent = versiones[0].Product
      x.innerHTML=`
-      <div class="ml-5 col-md-5 p-lg-5" > 
-      <div class="card border-dark bg-success" style="width: 18rem;">
-      <div class="card-header border-dark"><h5 class="card-title text-center ">Current level</h5></div>
+      <div class="col-md-6 p-lg-5" > 
+      <div class="card border-dark bg-success" style="width: 17rem;">
+      <div class="card-header border-dark"><h5 class="card-title text-center "><strong class="font-weight-bold">Current level</strong></h5></div>
           <div class="card-body text-sm-start">
               <h6 class="card-subtitle mb-2 fw-light">PID =  <strong class="font-weight-bold">${versiones[0].PID}</strong> </h6>
               <h6 class="card-subtitle mb-2 fw-light">SP/Build =  <strong class="font-weight-bold">${versiones[0].SP_Build}</strong></h6>
@@ -141,9 +145,9 @@ function printdata(data){
           </div>
       </div>
   </div>
-  <div class="ml-5 col-md-5 p-lg-5" > 
-    <div class="card border-dark" style="width: 18rem;">
-    <div class="card-header bg-transparent border-dark "><h5 class="card-title text-center ">Backup level</h5></div>
+  <div class="col-md-6 p-lg-5" > 
+    <div class="card border-dark" style="width: 17rem;">
+    <div class="card-header bg-transparent border-dark "><h5 class="card-title text-center "><strong class="font-weight-bold">Backup level</strong></h5></div>
         <div class="card-body text-sm-start aqui">
             <h6 class="card-subtitle mb-2 fw-light">PID =  <strong class="font-weight-bold">${versiones[1].PID.substring(0,7)}</strong> </h6>
             <h6 class="card-subtitle mb-2 fw-light">SP/Build =  <strong class="font-weight-bold">${versiones[1].SP_Build.substring(0,4)}</strong></h6>
@@ -162,16 +166,19 @@ function printdata(data){
 
 
     if (versiones[1].PID != 'None') {
-        const z = document.createElement('h6')
-        z.classList.add("card-subtitle")
-        z.classList.add("mb-2")
-        z.classList.add("fw-light")
-        z.textContent = 'Note: '
-        const y = document.createElement('strong')
-        y.classList.add("font-weight-bold")
-        y.textContent='Remember to accept the maintenance before starting the installation.'
-        z.appendChild(y)
-        document.querySelector('.aqui').appendChild(z)
+        const z = document.createElement('div')
+        z.classList.add("col-md-8")
+        z.classList.add("p-lg-8")
+        z.classList.add("d-flex")
+        z.classList.add("justify-content-center")        
+        z.classList.add("ml-3")
+        z.innerHTML=`                                
+        <div class="alert alert-danger" role="alert" style="border-color:white">
+        Remember to accept the Back-up before starting the installation!
+    </div>
+        `
+        console.log(z)
+        document.querySelector('.CHAILD').appendChild(z)
     }
     
     // }else{
