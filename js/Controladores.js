@@ -99,6 +99,15 @@ function CML(e) {
                 }
             }else{
                 printdata(data);
+                if(data.versiones[0].Product.indexOf('Toshiba SurePOS ACE EPS')!= -1){
+                    lista[indice-1].MLEPS=data
+                } else if(data.versiones[0].Product.indexOf('Toshiba TCx Pay for ACE')!= -1){ 
+                    lista[indice-1].MLPAY=data
+                } else {
+                    lista[indice-1].MLACE=data
+                }
+                // console.log(lista[indice-1])
+                sessionStorage.setItem('Controladores', JSON.stringify(lista));
             }
         })
         .catch((error) => {
@@ -119,9 +128,10 @@ function CML(e) {
 }
 
 function printdata(data){
+    limpiarHTML(document.querySelector('.CHAILD'))
     // console.log(data)
     const {versiones}=data
-    console.log(versiones[0])
+    // console.log(versiones[0])
     // var type=''
     const x = document.createElement('div')
     x.classList.add('row')
@@ -177,7 +187,7 @@ function printdata(data){
         Remember to accept or cancel the Back-up before starting the installation!
     </div>
         `
-        console.log(z)
+        // console.log(z)
         document.querySelector('.CHAILD').appendChild(z)
     }
     
@@ -213,19 +223,80 @@ function Reportml(e){
 
     e.target.classList.add('btn-danger')
     e.target.classList.remove('btn-light')
-    
-    console.log(e.target.textContent == 'ACE EPS')
-    if (e.target.textContent == 'ACE EPS') {
+    console.log(e.target)
+    // console.log(e.target.textContent == 'ACE EPS')
+    if (e.target.textContent == 'SurePOS ACE EPS') {
         title.textContent= 'ACE EPS ----'
         title.setAttribute("id","EPS");
+        if(lista[indice-1].MLEPS){
+            printdata(lista[indice-1].MLEPS)
+        } else {
+            printclean()
+        }
     }if (e.target.textContent=='SurePOS ACE') {
         title.textContent='Toshiba SurePOS ACE -----'
         title.setAttribute("id","ACE");
-    } if(e.target.textContent=='Tcxpay'){
+        if(lista[indice-1].MLACE){
+            printdata(lista[indice-1].MLACE)
+        } else {
+            printclean()
+        }
+    } if(e.target.textContent=='TCxPay for ACE'){
         title.textContent='Toshiba TcxPay for ACE -----'
         title.setAttribute("id","PAY");
+        if(lista[indice-1].MLPAY){
+            printdata(lista[indice-1].MLPAY)
+        } else {
+            printclean()
+        }
     }
     
+}
+
+
+function printclean(){
+    limpiarHTML(document.querySelector('.CHAILD'))
+    const x = document.createElement('div')
+    x.classList.add('row')
+    x.classList.add('d-flex')
+    x.classList.add('justify-content-center')
+    // if (versiones.Maintenance.ACE3D != 'None' || versiones.Backup.ACE3D != 'None'){
+    //   if (versiones.Maintenance.ACE3D == 'None'){type=versiones.Backup}else{type=versiones.Maintenance}
+     x.innerHTML=`
+            <div class="col-md-6 p-lg-5" > 
+            <div class="card border-dark" style="width: 17rem;">
+            <div class="card-header bg-transparent border-dark"><h5 class="card-title text-center "><strong class="font-weight-bold">Current level</strong></h5></div>
+                <div class="card-body text-sm-start">
+                    <h6 class="card-subtitle mb-2 fw-light"> PID =   -------------- </h6>
+                    <h6 class="card-subtitle mb-2 fw-light">SP/Build = --------------</h6>
+                    <h6 class="card-subtitle mb-2 fw-light">Release = --------------</h6>
+                    <h6 class="card-subtitle mb-2 fw-light">Base level = --------------</h6>
+                    <h6 class="card-subtitle mb-2 fw-light">Date applied= --------------</h6>
+                    <h6 class="card-subtitle mb-2 fw-light">PTF = --------------</h6>
+                    <h6 class="card-subtitle mb-2 fw-light">Emergency Fix = --------------</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 p-lg-5" > 
+            <div class="card border-dark" style="width: 17rem;">
+                <div class="card-header bg-transparent border-dark "><h5 class="card-title text-center "><strong class="font-weight-bold">Backup level</strong></h5></div>
+                <div class="card-body text-sm-start ">
+                    <h6 class="card-subtitle mb-2 fw-light">PID = -------------- </h6>
+                    <h6 class="card-subtitle mb-2 fw-light">SP/Build = --------------</h6>
+                    <h6 class="card-subtitle mb-2 fw-light">Release = --------------</h6>
+                    <h6 class="card-subtitle mb-2 fw-light">Base level = --------------</h6>
+                    <h6 class="card-subtitle mb-2 fw-light">Date applied= --------------</h6>
+                    <h6 class="card-subtitle mb-2 fw-light">PTF = --------------</h6>
+                    <h6 class="card-subtitle mb-2 fw-light">Emergency Fix = --------------</h6>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    `
+    document.querySelector('.CHAILD').appendChild(x)
+
+
 }
 
 function seleccion(e) {
@@ -369,6 +440,8 @@ function inicioApp() {
         span.classList.add('bg-success')
         listacontroladores(0)
         console.log(lista[indice-1].ip)
+        // Reportml()
+        document.querySelector('#inicioapACE').click()
     } else {
         temp.textContent = ` You have not added any controller`
         span.textContent = '----'
