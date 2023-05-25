@@ -2,102 +2,137 @@
   "Jedi": [
   {
   "id":1,
-  "nivel": "V8R1SP2.j239.11",
-  "complemento": "6D V8R1SP2.j239.11-20221215.201152-1"
+  "nivel": "V8R1SP2.j292.8",
+  "complemento": "6D V8R1SP2.j292.8-20230511.005409-1"
  },
   {
   "id":2,
-  "nivel": "V8R1SP2.j239.12",
-  "complemento": "6D V8R1SP2.j239.12-20230104.171205-1"
+  "nivel": "V8R1SP2.j327",
+  "complemento": "6D V8R1SP2.j327-20230511.164359-1"
  },
   {
   "id":3,
-  "nivel": "V8R1SP2.j293.1",
-  "complemento": "6D V8R1SP2.j293.1-20221215.171116-1"
+  "nivel": "V8R1SP2.j328",
+  "complemento": "6D V8R1SP2.j328-20230518.164904-1"
  },
   {
   "id":4,
-  "nivel": "V8R1SP2.j293.2",
-  "complemento": "6D V8R1SP2.j293.2-20230104.184247-1"
- },
-  {
-  "id":5,
-  "nivel": "V8R1SP2.j304",
-  "complemento": "6D V8R1SP2.j304-20221207.051634-2"
- },
-  {
-  "id":6,
-  "nivel": "V8R1SP2.j306",
-  "complemento": "6D V8R1SP2.j306-20221215.184335-1"
- },
-  {
-  "id":7,
-  "nivel": "V8R1SP2.j308",
-  "complemento": "6D V8R1SP2.j308-20230103.060859-2"
- },
-  {
-  "id":8,
-  "nivel": "V8R1SP2.j309",
-  "complemento": "6D V8R1SP2.j309-20230106.230642-1"
+  "nivel": "V8R1SP2.j329",
+  "complemento": "6D V8R1SP2.j329-20230525.164549-1"
 }
   ],
   "Leia": [
   {
   "id":1,
-  "nivel": "V8R2.l145.13",
-  "complemento": "6D V8R2.l145.13-20230104.005325-1"
+  "nivel": "V8R2.l125.8",
+  "complemento": "6D V8R2.l125.8-20230516.020918-1"
  },
   {
   "id":2,
-  "nivel": "V8R2.l145.14",
-  "complemento": "6D V8R2.l145.14-20230105.225310-1"
+  "nivel": "V8R2.l159.1",
+  "complemento": "6D V8R2.l159.1-20230513.001505-1"
  },
   {
   "id":3,
-  "nivel": "V8R2.l145.15",
-  "complemento": "6D V8R2.l145.15-20230106.214806-1"
+  "nivel": "V8R2.l200",
+  "complemento": "6D V8R2.l200-20230510.042449-2"
  },
   {
   "id":4,
-  "nivel": "V8R2.l180",
-  "complemento": "6D V8R2.l180-20221220.045356-2"
+  "nivel": "V8R2.l201",
+  "complemento": "6D V8R2.l201-20230511.170120-1"
  },
   {
   "id":5,
-  "nivel": "V8R2.l181",
-  "complemento": "6D V8R2.l181-20221222.174849-1"
+  "nivel": "V8R2.l202",
+  "complemento": "6D V8R2.l202-20230520.041808-2"
  },
   {
   "id":6,
-  "nivel": "V8R2.l182",
-  "complemento": "6D V8R2.l182-20221229.175237-1"
- },
-  {
-  "id":7,
-  "nivel": "V8R2.l183",
-  "complemento": "6D V8R2.l183-20230106.051228-2"
+  "nivel": "V8R2.l203",
+  "complemento": "6D V8R2.l203-20230525.170249-1"
 }
   ],
   "Morty": [
   {
   "id":1,
-  "nivel": "V8R3.m126",
-  "complemento": "6D V8R3.m126-20221220.084608-3"
+  "nivel": "V8R3.m112.24",
+  "complemento": "6D V8R3.m112.24-20230508.181502-1"
  },
   {
   "id":2,
-  "nivel": "V8R3.m127",
-  "complemento": "6D V8R3.m127-20221228.083753-2"
+  "nivel": "V8R3.m121.10",
+  "complemento": "6D V8R3.m121.10-20230511.183628-1"
  },
   {
   "id":3,
-  "nivel": "V8R3.m128",
-  "complemento": "6D V8R3.m128-20221229.174535-1"
+  "nivel": "V8R3.m128.3",
+  "complemento": "6D V8R3.m128.3-20230512.003730-1"
  },
   {
   "id":4,
-  "nivel": "V8R3.m129",
-  "complemento": "6D V8R3.m129-20230106.084720-2"
+  "nivel": "V8R3.m128.4",
+  "complemento": "6D V8R3.m128.4-20230512.213206-1"
+ },
+  {
+  "id":5,
+  "nivel": "V8R3.m128.5",
+  "complemento": "6D V8R3.m128.5-20230519.011638-1"
+ },
+  {
+  "id":6,
+  "nivel": "V8R3.m129.5",
+  "complemento": "6D V8R3.m129.5-20230513.003102-1"
+ },
+  {
+  "id":7,
+  "nivel": "V8R3.m137.2",
+  "complemento": "6D V8R3.m137.2-20230505.181816-1"
+ },
+  {
+  "id":8,
+  "nivel": "V8R3.m137.3",
+  "complemento": "6D V8R3.m137.3-20230519.231057-1"
+ },
+  {
+  "id":9,
+  "nivel": "V8R3.m138.3",
+  "complemento": "6D V8R3.m138.3-20230505.213526-2"
+ },
+  {
+  "id":10,
+  "nivel": "V8R3.m138.4",
+  "complemento": "6D V8R3.m138.4-20230517.222411-1"
+ },
+  {
+  "id":11,
+  "nivel": "V8R3.m146",
+  "complemento": "6D V8R3.m146-20230510.082610-4"
+ },
+  {
+  "id":12,
+  "nivel": "V8R3.m147",
+  "complemento": "6D V8R3.m147-20230518.051440-5"
+ },
+  {
+  "id":13,
+  "nivel": "V8R3.m148",
+  "complemento": "6D V8R3.m148-20230525.042300-5"
+ },
+  {
+  "id":14,
+  "nivel": "V8R3.m149",
+  "complemento": "6D V8R3.m149-20230525.165322-1"
+ },
+  {
+  "id":15,
+  "nivel": "V8R3.n090",
+  "complemento": "6D V8R3.n090-20230516.175625-2"
+ },
+  {
+  "id":16,
+  "nivel": "V8R3.n091",
+  "complemento": "6D V8R3.n091-20230523.174041-2"
 }
   ]
 }

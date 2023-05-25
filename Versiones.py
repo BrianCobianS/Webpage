@@ -38,8 +38,8 @@ def changeBat(fileDirectory,ACED,ACEBASE):
         versiones= iguales
       for tipo in versiones:
         for version in tipo:
-          # print(version + '-SNAPSHOT')
-          url = 'http://10.89.110.62:28081/repository/tgcs-maven-snapshot/com/toshibacommerce/ace/ACE'+ACED+'001/' +version + '-SNAPSHOT/maven-metadata.xml'
+          print(version + '-SNAPSHOT')
+          url = 'https://nexus.commerce.toshiba.com/repository/tgcs-maven-group/com/toshibacommerce/ace/ACE'+ACED+'001/' +version + '-SNAPSHOT/maven-metadata.xml'
           output_directory = './update'
           complement = wget.download(url , out=output_directory)
           with open(complement,'r') as archivo:
@@ -50,7 +50,7 @@ def changeBat(fileDirectory,ACED,ACEBASE):
                 final=linea.find('</value>')
                 linea1=linea[inicio+7:final]
                 complementos.append(ACED+' '+linea1)
-                # print(linea1)
+                print(linea1)
                 break
           os.remove(complement)
       Tipo=['Jedi','Leia','Morty']
@@ -72,7 +72,7 @@ def changeBat(fileDirectory,ACED,ACEBASE):
       contenido.writelines('}\n')
       return versiones
 def getverison(type,ACEBASE):
-  url = 'http://10.89.110.62:28081/service/rest/repository/browse/tgcs-maven-snapshot/com/toshibacommerce/ace/ACE'+type+'001/'
+  url = 'https://nexus.commerce.toshiba.com/service/rest/repository/browse/tgcs-maven-group/com/toshibacommerce/ace/ACE'+type+'001/'
   output_directory = './update'
   filename = wget.download(url , out=output_directory)
   # print(ACEBASE)

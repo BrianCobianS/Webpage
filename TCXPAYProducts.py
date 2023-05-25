@@ -21,9 +21,9 @@ def changeBat(fileDirectory,name):
       for x in versiones:
         f += 1
         if name == 'common':
-            url1 = 'http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-common-install/'+x+'/tcxpay-common-install-'+x+'.iso'
+            url1 = 'https://nexus.commerce.toshiba.com/service/rest/repository/browse/tgcs-maven-group/com/tgcs/tcxpay/tcxpay-common-install/'+x+'/tcxpay-common-install-'+x+'.iso'
         else:
-            url1 = 'http://10.89.110.62:28081/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/'+x+'/tcxpay-pinpad-spt-asm-'+x+'.iso'
+            url1 = 'https://nexus.commerce.toshiba.com/service/rest/repository/browse/tgcs-maven-group/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/'+x+'/tcxpay-pinpad-spt-asm-'+x+'.iso'
         if f != len(versiones):
             contenido.writelines('  {\n  "id":'+str(f)+',\n  "nivel": "'+x+'",\n  "url": "'+url1+'"\n},\n')
         else:
@@ -37,7 +37,7 @@ def TCXPAY(url, name):
     filename = wget.download(url , out=output_directory)
     x=changeBat(filename,name)
     os.remove(filename)
-urlcommon='http://10.89.110.62:28081/service/rest/repository/browse/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-common-install/'
-urlPINPAD='http://10.89.110.62:28081/service/rest/repository/browse/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/'
+urlcommon='https://nexus.commerce.toshiba.com/service/rest/repository/browse/tgcs-maven-group/com/tgcs/tcxpay/tcxpay-common-install/'
+urlPINPAD='https://nexus.commerce.toshiba.com/service/rest/repository/browse/tgcs-maven-group/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/'
 TCXPAY(urlcommon,'Common')
 TCXPAY(urlPINPAD,'PINPAD')
