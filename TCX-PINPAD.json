@@ -3,7 +3,7 @@
   {
   "id":1,
   "nivel": "1.2.7--19",
-  "url": "https://nexus.commerce.toshiba.com/service/rest/repository/browse/tgcs-maven-group/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.7--19/tcxpay-pinpad-spt-asm-1.2.7--19.iso"
+  "url": "https://nexus.commerce.toshiba.com/repository/tgcs-maven-group/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.7--19/tcxpay-pinpad-spt-asm-1.2.7--19.iso"
 }
   ]
 }

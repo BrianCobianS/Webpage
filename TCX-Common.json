@@ -3,12 +3,12 @@
   {
   "id":1,
   "nivel": "1.2.12--65",
-  "url": "https://nexus.commerce.toshiba.com/service/rest/repository/browse/tgcs-maven-group/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.12--65/tcxpay-pinpad-spt-asm-1.2.12--65.iso"
+  "url": "https://nexus.commerce.toshiba.com/repository/tgcs-maven-group/com/tgcs/tcxpay/tcxpay-common-install/1.2.12--65/tcxpay-common-install-1.2.12--65.iso"
 },
   {
   "id":2,
   "nivel": "1.2.12--66",
-  "url": "https://nexus.commerce.toshiba.com/service/rest/repository/browse/tgcs-maven-group/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/1.2.12--66/tcxpay-pinpad-spt-asm-1.2.12--66.iso"
+  "url": "https://nexus.commerce.toshiba.com/repository/tgcs-maven-group/com/tgcs/tcxpay/tcxpay-common-install/1.2.12--66/tcxpay-common-install-1.2.12--66.iso"
 }
   ]
 }

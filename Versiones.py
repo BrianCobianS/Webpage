@@ -1,6 +1,26 @@
 import wget
 import os
 # os.rename('./update/download.wget', './update/x')
+ACEREALESES=[]
+ACELIST=[]
+Types=['3D','4D','6D']
+import os
+
+def verificar_crear_directorio(directorio):
+    if not os.path.exists(directorio):
+        os.makedirs(directorio)
+        print(f"Directorio '{directorio}' creado.")
+    else:
+        print(f"El directorio '{directorio}' ya existe.")
+
+# Ejemplo de uso
+
+
+def eliminar_contenido_directorio(directorio):
+    for archivo in os.listdir(directorio):
+        ruta_archivo = os.path.join(directorio, archivo)
+        if os.path.isfile(ruta_archivo):
+            os.remove(ruta_archivo)
 
 def changeBat(fileDirectory,ACED,ACEBASE):
     with open(fileDirectory,'r') as archivo:
@@ -61,13 +81,16 @@ def changeBat(fileDirectory,ACED,ACEBASE):
             contenido.writelines('  "'+Tipo[x]+'": [\n')
             f=0
             for index in versiones[x]:
-              f += 1
+                f += 1
               # print(i)
-              if  f == len(versiones[x]) :
-                contenido.writelines('  {\n  "id":'+str(f)+',\n  "nivel": "'+index+'",\n  "complemento": "'+complementos[i]+'"\n}\n')
-              else:
-                contenido.writelines('  {\n  "id":'+str(f)+',\n  "nivel": "'+index+'",\n  "complemento": "'+complementos[i]+'"\n },\n')
-              i += 1
+                if  f == len(versiones[x]) :
+                    contenido.writelines('  {\n  "id":'+str(f)+',\n  "nivel": "'+index+'",\n  "complemento": "'+complementos[i]+'"\n}\n')
+                else:
+                    contenido.writelines('  {\n  "id":'+str(f)+',\n  "nivel": "'+index+'",\n  "complemento": "'+complementos[i]+'"\n },\n')
+                ACEREALESES.append('ACE'+ACED+'001'+'-'+complementos[i][3:])
+                if ACED == '6D':
+                    ACELIST.append(index)
+                i += 1
             contenido.writelines('  ]\n') if x == 2 else contenido.writelines('  ],\n')
       contenido.writelines('}\n')
       return versiones
@@ -85,6 +108,35 @@ ACEBASE=''
 ACEBASE=getverison('3D',ACEBASE)
 getverison('4D',ACEBASE)
 getverison('6D',ACEBASE)
+# print(ACEREALESES)
+# print(ACELIST)
+#Codigo para revisar las diferecias entre la copia local y los de la nube
+# nexus=[]
+# for nivel in ACELIST:
+#     for comple in ACEREALESES:
+#         if (nivel in comple):
+#           nexus.append('ACE'+comple[3:5]+'001'+'-'+comple[9:]+'.zip')
+# # print(nexus)
+# locales=os.listdir('./Packs')
+# # print(locales)
+# faltantes=[]
+# for elemento in nexus:
+#     if elemento not in locales:
+#         faltantes.append(elemento[:-4])
+#         print('Falta: '+elemento[:-4])
+        
+directorio = './Packs'
+verificar_crear_directorio(directorio)
+eliminar_contenido_directorio(directorio)
+for nivel in ACELIST:
+# for nivel in faltantes:
+    for comple in ACEREALESES:
+        if (nivel in comple):
+          url = 'https://nexus.commerce.toshiba.com/repository/tgcs-maven-group/com/toshibacommerce/ace/ACE'+comple[3:5]+'001/'+nivel+'-SNAPSHOT/ACE'+comple[3:5]+'001-'+comple[9:]+'.zip'
+          output_directory = './Packs'
+          print(url)
+          wget.download(url , out=output_directory)
+          
 # El archivo que se genera de 6D es el que contiene la informacion util para la aplicacion porque son las versiones que existen tanto 
 #en EPS como en SUREPOS ACE para JEDI y para morty y Leia son las mismas que son iguales entre en el archivo de ACE 3D Y 4D
 
